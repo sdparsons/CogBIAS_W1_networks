@@ -39,8 +39,8 @@ keywords          : "Combined cognitive bias hypothesis, network analysis, adole
 
 bibliography      : ["My Library.bib", "r-references.bib"]
 
-floatsintext      : yes
-figurelist        : no
+floatsintext      : no
+figurelist        : yes
 tablelist         : no
 footnotelist      : no
 linenumbers       : no
@@ -665,7 +665,7 @@ table1 <- as.data.frame(cbind(m_sd, fash1))
 
 papaja::apa_table(table1,
                   align = c('l', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r'),
-                  caption = "Descriptive statistics and correlation matrix for the full sample (n = 451) and descriptive statistics for the low-MH and high-MH group",
+                  caption = "Descriptive statistics and correlation matrix for the full sample (n = 450) and descriptive statistics for the low-MH and high-MH group",
                   note = "MH = Positive mental health; IB_S_Pos = Social Positive Interpretation Bias; IB_S_Neg = Social Negative Interpretation Bias; IB_N_Pos = Non-Social Negative Interpretation Bias; IB_N_Neg = Non-Social; MB_Pos = positive memory bias; MB_Neg = negative memory bias.")
 
 # write.csv(table1, "Apendices/Table_1.csv")

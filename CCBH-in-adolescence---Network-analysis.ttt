@@ -1,0 +1,32 @@
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:table1}Descriptive statistics and correlation matrix for the full sample (n = 450) and descriptive statistics for the low-MH and high-MH group}
+
+\begin{tabular}{lrrrrrrrr}
+\toprule
+ & \multicolumn{1}{c}{mean} & \multicolumn{1}{c}{sd} & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)} & \multicolumn{1}{c}{(5)} & \multicolumn{1}{c}{(6)}\\
+\midrule
+MH (1) & 40.74 & 12.59 &  &  &  &  &  & \\
+IB\_S\_Pos (2) & 2.55 & 0.62 & .37 &  &  &  &  & \\
+IB\_N\_Pos (3) & 3.54 & 0.64 & .33 & .41 &  &  &  & \\
+IB\_S\_Neg (4) & 3.29 & 0.88 & -.25 & -.26 & -.17 &  &  & \\
+IB\_N\_Neg (5) & 3.17 & 0.72 & -.15 & -.00 & -.19 & .51 &  & \\
+MB\_Pos (6) & 6.84 & 2.87 & .40 & .30 & .21 & -.24 & -.15 & \\
+MB\_Neg (7) & 2.51 & 2.34 & -.43 & -.28 & -.26 & .42 & .24 & -.29\\
+\bottomrule
+\addlinespace
+\end{tabular}
+
+\begin{tablenotes}[para]
+\normalsize{\textit{Note.} MH = Positive mental health; IB\_S\_Pos = Social Positive Interpretation Bias; IB\_S\_Neg = Social Negative Interpretation Bias; IB\_N\_Pos = Non-Social Negative Interpretation Bias; IB\_N\_Neg = Non-Social; MB\_Pos = positive memory bias; MB\_Neg = negative memory bias.}
+\end{tablenotes}
+
+\end{threeparttable}
+\end{center}
+
+\end{table*}

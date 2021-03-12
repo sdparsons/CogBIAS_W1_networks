@@ -4,7 +4,7 @@
 %
 \documentclass[
   english,
-  man,floatsintext]{apa6}
+  man]{apa6}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -121,7 +121,20 @@ The data and code used for the analyses, and to generate this manuscript can be 
 
 Correspondence concerning this article should be addressed to Sam Parsons, Department of Experimental Psychology, University of Oxford, New Radcliffe House, Radcliffe Observatory Quarter, Oxford, OX2 6AE. E-mail: sam.parsons@psy.ox.ac.uk}
 \keywords{Combined cognitive bias hypothesis, network analysis, adolescent, positive mental health}
+\DeclareDelayedFloatFlavor{ThreePartTable}{table}
+\DeclareDelayedFloatFlavor{lltable}{table}
+\DeclareDelayedFloatFlavor*{longtable}{table}
+\makeatletter
+\renewcommand{\efloat@iwrite}[1]{\immediate\expandafter\protected@write\csname efloat@post#1\endcsname{}}
+\makeatother
 \usepackage{csquotes}
+\usepackage[titles]{tocloft}
+\cftpagenumbersoff{figure}
+\renewcommand{\cftfigpresnum}{\itshape\figurename\enspace}
+\renewcommand{\cftfigaftersnum}{.\space}
+\setlength{\cftfigindent}{0pt}
+\setlength{\cftafterloftitleskip}{0pt}
+\settowidth{\cftfignumwidth}{Figure 10.\qquad}
 \usepackage{float}
 \floatplacement{figure}{H}
 \raggedbottom
@@ -235,7 +248,7 @@ Table 1 presents the descriptive statistics and correlation matrix for all varia
 \begin{center}
 \begin{threeparttable}
 
-\caption{\label{tab:table1}Descriptive statistics and correlation matrix for the full sample (n = 451) and descriptive statistics for the low-MH and high-MH group}
+\caption{\label{tab:table1}Descriptive statistics and correlation matrix for the full sample (n = 450) and descriptive statistics for the low-MH and high-MH group}
 
 \begin{tabular}{lrrrrrrrr}
 \toprule
@@ -542,5 +555,9 @@ Wenzlaff, R. M., \& Bates, D. E. (1998). Unmasking a cognitive vulnerability to 
 Yiend, J. (2010). The effects of emotion on attention: A review of attentional processing of emotional information. \emph{Cognition \& Emotion}, \emph{24}(1), 3--47. \url{https://doi.org/10.1080/02699930903205698}
 
 \endgroup
+
+\clearpage
+\renewcommand{\listfigurename}{Figure captions}
+
 
 \end{document}
