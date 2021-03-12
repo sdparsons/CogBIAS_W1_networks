@@ -665,7 +665,7 @@ table1 <- as.data.frame(cbind(m_sd, fash1))
 
 papaja::apa_table(table1,
                   align = c('l', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r'),
-                  caption = "Descriptive statistics and correlation matrix for the full sample (n = 450) and descriptive statistics for the low-MH and high-MH group",
+                  caption = "Descriptive statistics and correlation matrix for the full sample (n = 450)",
                   note = "MH = Positive mental health; IB_S_Pos = Social Positive Interpretation Bias; IB_S_Neg = Social Negative Interpretation Bias; IB_N_Pos = Non-Social Negative Interpretation Bias; IB_N_Neg = Non-Social; MB_Pos = positive memory bias; MB_Neg = negative memory bias.")
 
 # write.csv(table1, "Apendices/Table_1.csv")
@@ -893,7 +893,7 @@ plot(glasso_high,
 
 As described in the data analysis section, there are some limitations to the Network Comparison analysis. Splitting the sample and comparing the global strength provides some, but limited, information about the moderating effect of mental health on the interrelationships among cognitive biases. Therefore, to fully address the question of moderation we analysed the complete data set (n=450) using a Moderated Network analysis approach [@haslbeck_moderated_2018]. We used the _mgm_ package [@haslbeck_moderated_2018] to estimate the moderated network with positive mental health as the moderating variable. We used cross-validation to select the regularization parameter. Weak edges are shrunk to zero leading to a matrix of regularised coefficients representing conditional dependence relations. For the nodewise regressions k edge weights are obtained for each k-order interaction (e.g. 2 for pairwise interactions and 3 for the moderated effects). We used the OR-rule to combine these weights, which takes the mean of all k parameter estimates, as the default option and because the AND-rule may be too conservative for the 3-way interactions of interest [@haslbeck_moderated_2018]. We then extracted predictability indices for each variable following Haslbeck & Waldorp [-@haslbeck_how_2018]. Predictability refers to the proportion of variance explained by all other nodes in the network.
 
-```{r results = 'hide'}
+```{r moderated_network results = 'hide'}
 
 fit_obj3 <- mgm(data = CCBH2,
   type = c(rep("g", 7)),

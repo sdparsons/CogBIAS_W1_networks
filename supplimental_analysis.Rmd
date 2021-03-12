@@ -1,0 +1,469 @@
+---
+title             : "Supplimental analyses for: \n Emotional information-processing correlates of positive mental health in adolescence: A network analysis approach"
+shorttitle        : "supplimental analyses"
+
+author: 
+  - name          : "Sam Parsons"
+    affiliation   : "1"
+    corresponding : yes    # Define only one corresponding author
+    address       : "Department of Experimental Psychology, University of Oxford, New Radcliffe House, Radcliffe Observatory Quarter, Oxford, OX2 6AE"
+    email         : "sam.parsons@psy.ox.ac.uk"
+  - name          : "Annabel Songco"
+    affiliation   : "1"
+  - name          : "Charlotte Booth"
+    affiliation   : "1"
+  - name          : "Elaine Fox"
+    affiliation   : "1"
+
+affiliation:
+  - id            : "1"
+    institution   : "Department of Experimental Psychology, University of Oxford"
+
+authornote: |
+  author note
+
+
+bibliography      : ["My Library.bib", "r-references.bib"]
+
+floatsintext      : yes
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : yes
+mask              : no
+draft             : no
+
+documentclass     : "apa6"
+classoption       : "man"
+output            :
+  papaja::apa6_pdf:
+    latex_engine: xelatex
+
+header-includes: #allows you to add in your own Latex packages
+- \usepackage{float} #use the 'float' package
+- \floatplacement{figure}{H} #make every figure with caption = h
+- \raggedbottom
+- \note{\clearpage}
+
+---
+
+```{r setup}
+# comment in as needed
+knitr::opts_chunk$set(comment = NA)
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(fig.pos = "h")
+knitr::opts_chunk$set(tidy = TRUE)
+knitr::opts_chunk$set(results = 'hide')
+knitr::opts_chunk$set(cache = TRUE)
+
+options(tinytex.verbose = TRUE)
+
+```
+
+```{r load packages}
+
+### Load packages
+
+if(!"devtools" %in% rownames(installed.packages())) install.packages("devtools")
+
+if(!"papaja" %in% rownames(installed.packages())) devtools::install_github("crsh/papaja")
+if(!"tidyverse" %in% rownames(installed.packages())) install.packages("tidyverse")
+if(!"foreign" %in% rownames(installed.packages())) install.packages("foreign")
+if(!"bootnet" %in% rownames(installed.packages())) install.packages("bootnet")
+if(!"igraph" %in% rownames(installed.packages())) install.packages("igraph")
+if(!"mgm" %in% rownames(installed.packages())) install.packages("mgm")
+if(!"qgraph" %in% rownames(installed.packages())) install.packages("qgraph")
+if(!"NetworkComparisonTest" %in% rownames(installed.packages())) install.packages("NetworkComparisonTest")
+if(!"parallel" %in% rownames(installed.packages())) install.packages("parallel")
+if(!"gridExtra" %in% rownames(installed.packages())) install.packages("gridExtra")
+if(!"Cairo" %in% rownames(installed.packages())) install.packages("Cairo")
+if(!"splithalf" %in% rownames(installed.packages())) devtools::install_github("sdparsons/splithalf")
+if(!"psych" %in% rownames(installed.packages())) install.packages("psych")
+if(!"scales" %in% rownames(installed.packages())) install.packages("scales")
+if(!"RColorBrewer" %in% rownames(installed.packages())) install.packages("RColorBrewer")
+if(!"corrr" %in% rownames(installed.packages())) install.packages("corrr")
+
+
+library("papaja")    # for APA formatting awesome-ness in Rmarkdown
+library("tidyverse") # for restructuring data
+library("foreign")   # for using SPSS data
+library("bootnet")   # for network analysis
+library("igraph")    # used for spinglass
+library("mgm")       # for network analysis
+library("qgraph")    # for network analysis - specifically averageLayout
+library("NetworkComparisonTest") # for network model comparisons
+library("parallel") # used to get number of cores for bootnet
+library("gridExtra") # used for combining plots
+library("Cairo")
+library("splithalf") # for internal consistency of measures
+library("psych")
+library("scales") # for plotting the interaction figures
+library("RColorBrewer") # for plotting the interaction figures
+library("corrr") # for fig 1
+library("glasso") # to cite
+
+r_refs(file = "r-references.bib")
+
+```
+
+```{r load data}
+
+demographics <- read.csv("Data/W1_demographics.csv", stringsAsFactors =  FALSE)
+scores2 <- read.spss("Data/W1_Q2.sav", to.data.frame = TRUE)
+AIBQ <- read.spss("Data/W1_AIBQ.sav", to.data.frame = TRUE)
+Memory <- read.spss("Data/W1_SRET.sav", to.data.frame = TRUE)
+MEM_raw <- read.spss("Data/Start_SRET_Masterfile.sav", to.data.frame = TRUE)
+AB_raw <- read.spss("Data/Dot-Probe SPSS Start.sav", to.data.frame = TRUE)
+AIBQ_raw <- read.spss("Data/Start_AIBQ_rawdata.sav", to.data.frame = TRUE)
+
+```
+
+```{r create dataframe}
+# note: this chunk demonstrated how the variables of interest were extracted from the datasets. 
+
+# first extract the variables of interest
+Qdat <- data.frame(subject = scores2$Master_subject,
+                   MHC_Tot = scores2$MCSHC_Total)
+
+AIBQdat <- data.frame(subjectAIBQ = AIBQ$Master_subject,
+                      Pos_Soc    = AIBQ$Interpretation_Pos_Social,
+                      Pos_nonsoc = AIBQ$Interpretation_Pos_Nonsocial,
+                      Neg_soc    = AIBQ$Interpretation_Neg_Social,
+                      Neg_nonsoc = AIBQ$Interpretation_Neg_Nonsocial)
+
+Memdat <- data.frame(subjectMEM = Memory$Master_subject,
+                     MEM_pos = Memory$PosEndorsedAndRecalled,
+                     MEM_neg = Memory$NegEndorsedAndRecalled)
+
+# combine into one dataframe
+CCBH <- cbind(Qdat,AIBQdat,Memdat)
+
+# quick checks that all IDs match
+sum(isFALSE(CCBH$subject == CCBH$subjectAIBQ)) 
+sum(isFALSE(CCBH$subjectQ == CCBH$subjectMEM))
+sum(isFALSE(CCBH$subjectAIBQ == CCBH$subjectMEM))
+
+# remove previous data frames to save space
+remove(list = c("AIBQ", "Memory", "Qdat","AIBQdat", "Memdat"))
+
+# remove participants with incomplete data # n=443 (with that extra participant, and DPT acc < 70% removed)
+CCBH <- na.omit(CCBH)
+
+# remove one copy participant
+CCBH <- CCBH %>%
+  filter(subject != 301041)
+
+#mean(CCBH$MHC_Tot)
+#sd(CCBH$MHC_Tot)
+#quantile(CCBH$MHC_Tot, c(.33, .66)) # 37 and 47
+
+CCBH2 <- CCBH %>%
+  select(2,4,5,6,7,9,10) %>%
+  rename(MH = MHC_Tot,
+         IB_S_Pos = Pos_Soc,
+         IB_N_Pos = Pos_nonsoc,
+         IB_S_Neg = Neg_soc,
+         IB_N_Neg = Neg_nonsoc,
+         MB_Pos = MEM_pos,
+         MB_Neg = MEM_neg)
+
+# save correlation and covariance matrices
+full_cor <- cor(CCBH2)
+full_cov <- cov(CCBH2)
+
+write.csv(full_cor, "Apendices/S8_FullSample_cor.csv")
+write.csv(full_cov, "Apendices/S9_FullSample_cov.csv")
+
+###
+
+demographics2 <- demographics %>%
+  filter(Master_subject %in% unique(CCBH$subject))
+
+median(demographics2$SES, na.rm = TRUE)
+
+ethincity_ns <- demographics2 %>%
+  group_by(ethnicity_genetic) %>%
+  summarise(n = n())
+
+```
+
+```{r create high and low groups}
+# checking sample size for the tertile split
+low  <- sum(CCBH$MHC_Tot < 37) # 145
+# mid  <- sum(CCBH$MHC_Tot >= 37 & CCBH$MHC_Tot <= 47) # 153
+high <- sum(CCBH$MHC_Tot > 47) # 150
+
+# subsetting into three samples
+low2 <- subset(CCBH, MHC_Tot < 37) # 
+# mid2 <- subset(CCBH, MHC_Tot >= 37 & MHC_Tot <= 47)
+high2 <- subset(CCBH, MHC_Tot > 47)
+
+low_ppt <- unique(low2$subject)
+# mid_ppt <- unique(mid2$subject)
+high_ppt <- unique(high2$subject)
+
+# selecting only the variables for inclusion in the networks
+low3  <- low2[,c(4,5,6,7,9,10)]
+# mid3  <- mid2[,c(4,5,6,7,9,10)]
+high3 <- high2[,c(4,5,6,7,9,10)]
+
+# changing variable names for interpretability
+variable_names  <- c("IB_S_Pos", "IB_N_Pos", "IB_S_Neg", "IB_N_Neg", "MB_Pos", "MB_Neg")
+colnames(low3)  <- variable_names
+# colnames(mid3)  <- variable_names
+colnames(high3) <- variable_names
+
+
+# saving correlation and covariance matrices for the apendices. 
+
+# low
+low_cor <- cor(low3)
+low_cov <- cov(low3)
+high_cor <- cor(high3)
+high_cov <- cov(high3)
+
+#write.csv(low_cor, "Apendices/S2_lowMH_cor_matrix.csv")
+#write.csv(low_cov, "Apendices/S3_lowMH_cov_matrix.csv")
+#write.csv(high_cor, "Apendices/S5_highMH_cor_matrix.csv")
+#write.csv(high_cov, "Apendices/S6_highMH_cov_matrix.csv")
+
+
+```
+
+```{r glasso networks, results = 'hide', fig.show="hide"}
+# estimate the networks
+glasso_low  <- estimateNetwork(low3, default = "EBICglasso", tuning = .5)
+#glasso_mid  <- estimateNetwork(mid3, default = "EBICglasso", tuning = .5)
+glasso_high  <- estimateNetwork(high3, default = "EBICglasso", tuning = .5)
+
+low_glas_weights <- glasso_low$graph
+colnames(low_glas_weights) <- variable_names
+rownames(low_glas_weights) <- variable_names
+
+#mid_glas_weights <- glasso_mid$graph
+#colnames(mid_glas_weights) <- variable_names
+#rownames(mid_glas_weights) <- variable_names
+
+high_glas_weights <- glasso_high$graph
+colnames(high_glas_weights) <- variable_names
+rownames(high_glas_weights) <- variable_names
+
+max_glass <- max(low_glas_weights[which(low_glas_weights != 1)], 
+                 #mid_glas_weights[which(mid_glas_weights != 1)],
+                 high_glas_weights[which(high_glas_weights != 1)]) # returns highest weight in the three samples' correlation matrices - to be used
+
+
+write.csv(low_glas_weights, "./Apendices/S4_low_glasso_weights.csv")
+#write.csv(mid_glas_weights, "./Apendices/mid_glasso_weights.csv")
+write.csv(high_glas_weights, "./Apendices/S7_high_glasso_weights.csv")
+
+##### plot the three networks
+
+layout_common <- averageLayout(glasso_low,
+                               #glasso_mid,
+                               glasso_high) # this is now the common layout for each figure
+
+# plot the low and high sample networks
+# save this plot
+
+Cairo::Cairo(file="Figures/twoglasso.png", 
+      type="png",
+      bg = "white",
+      units="in", 
+      width=16, 
+      height=8, 
+      pointsize=12, 
+      dpi=144)
+
+layout(t(1:2))
+
+plot(glasso_low, 
+     layout = layout_common, 
+     title = "low - MH plot", 
+     theme = "colorblind", 
+     labels = variable_names, 
+     vsize = 13, 
+     maximum = max_glass,
+       title.cex = 2,
+       label.cex = 1.1,
+       border.width = 1.8)
+
+plot(glasso_high, 
+     layout = layout_common, 
+     title = "high - MH plot", 
+     theme = "colorblind", 
+     labels = variable_names, 
+     vsize = 13, 
+     maximum = max_glass,
+       title.cex = 2,
+       label.cex = 1.1,
+       border.width = 1.8)
+
+dev.off()
+
+layout(1)
+
+```
+
+```{r networkcomparisontest, results='hide'}
+lh <- NCT(low3[,1:6], high3[,1:6], it=1000, gamma = .5, binary.data=FALSE)
+
+# could also run 
+#lm <- NCT(low3[,1:6], mid3[,1:6], it=1000, gamma = .5, binary.data=FALSE)
+#mh <- NCT(mid3[,1:6], high3[,1:6], it=1000, gamma = .5, binary.data=FALSE)
+```
+
+```{r NCT output, eval=FALSE}
+#can be used to check the 
+
+lh$glstrinv.pval
+lh$nwinv.pval
+
+#lm$glstrinv.pval
+#lm$nwinv.pval
+#mh$glstrinv.pval
+#mh$nwinv.pval
+```
+
+```{r check variance differences}
+low4 <- low3
+low4$group <- "low"
+
+high4 <- high3
+high4$group <- "high"
+
+mix <- rbind(low4, high4)
+mix$group <- as.factor(mix$group)
+
+bftest_IBSPos <- onewaytests::bf.test(data = mix,
+                     IB_S_Pos ~ group)
+bftest_IBNPos <- onewaytests::bf.test(data = mix,
+                     IB_N_Pos ~ group)
+bftest_IBSNeg <- onewaytests::bf.test(data = mix,
+                     IB_S_Neg ~ group)
+bftest_IBNNeg <- onewaytests::bf.test(data = mix,
+                     IB_N_Neg ~ group)
+
+bftest_MBPos <- onewaytests::bf.test(data = mix,
+                     MB_Pos ~ group)
+bftest_MBNeg <- onewaytests::bf.test(data = mix,
+                     MB_Neg ~ group)
+
+if(all(bftest_IBSPos$p.value < .05,
+      bftest_IBNPos$p.value < .05,
+      bftest_IBSNeg$p.value < .05,
+      bftest_IBNNeg$p.value < .05,
+      bftest_MBPos$p.value < .05,
+      bftest_MBNeg$p.value < .05)) {
+  bftest_min <- "< .05"
+      }
+
+
+
+var(low4$IB_S_Pos)
+var(high4$IB_S_Pos)
+
+var(low4$IB_N_Pos)
+var(high4$IB_N_Pos)
+
+var(low4$IB_S_Neg)
+var(high4$IB_S_Neg)
+
+var(low4$IB_S_Neg)
+var(high4$IB_S_Neg)
+
+var(low4$MB_Pos)
+var(high4$MB_Pos)
+
+var(low4$MB_Neg)
+var(high4$MB_Neg)
+
+low_m_sd <- psych::describe(low2[,c(2,4,5,6,7,9,10)]) %>%
+  as.data.frame() %>%
+  select(mean, sd) %>%
+  round(2)
+
+low_m_sd$var <- round(sapply(low2[,c(2,4,5,6,7,9,10)], var), 2)
+
+low_m_sd <- low_m_sd %>%
+  rename(`low M` = mean,
+         `low SD` = sd,
+         `low Var` = var)
+
+high_m_sd <- psych::describe(high2[,c(2,4,5,6,7,9,10)]) %>%
+  as.data.frame() %>%
+  select(mean, sd) %>%
+  round(2)
+
+high_m_sd$var <- round(sapply(high2[,c(2,4,5,6,7,9,10)], var), 2)
+
+high_m_sd <- high_m_sd %>%
+  rename(`high M` = mean,
+         `high SD` = sd,
+         `high Var` = var)
+
+table2 <- cbind(low_m_sd, high_m_sd)
+
+write.csv(table2, "Apendices/S1_Table_2.csv")
+
+
+```
+
+# Methods
+
+We first excluded all participants without complete data in all the measures described below, from the original sample of 504 adolescents. This resulted in a final sample of 450 adolescents (_M_ age = `r papaja::printnum(mean(demographics$Age, na.rm = TRUE))`, _SD_ = `r papaja::printnum(sd(demographics$Age, na.rm = TRUE))`, `r sum(demographics$gender == "F")` female, 75% Caucasian). We used the average score of parent’s highest level of education as an indirect measure of Socio-economic status, the median score was 4 (1 = “Secondary school”, 2 = “Vocational/technical school”, 3=“Some college”, 4 = “Bachelor’s degree”, 5 = “Master’s degree” , 6 = “Doctoral degree”).
+
+for the first stage of our analysis we selected two groups of participants based on scores on the Mental Health Continuum (MHC). For this, we performed a tertile split to yield low and high Mental Health groups (low-MH and high-MH, respectively). The low-MH group consisted of 146 participants, scoring below 37 on the MHC and the high-MH group consisted of 150 participants scoring above 47 on the MHC. 
+
+## Analysis plan
+
+First, we report a preliminary analysis in which we compared the network structure of interpretation and memory biases for a high-MH and a low-MH group, following a tertile split of the data by mental health. We computed a ‘graphical LASSO’ [gLASSO; @R-bootnet; also @friedman_sparse_2008] estimation procedure with EBIC model selection [@foygel_extended_2010]. The glasso algorithm is implemented in the _glasso_ package [@R-glasso], and is called by the _bootnet_ package [@R-bootnet], which we used for this paper. The glasso algorithm estimates a partial correlation network by directly penalising elements of the variance-covariance matrix and removing edges close to zero. We set the tuning parameter gamma to 0.5 to generate a sparser network, due to the removal of potentially spurious associations. We then used the NCT function from the _NetworkComparisonTest_ package [@R-NetworkComparisonTest] to compare our high mental health and low mental health networks. The function tests for differences in the overall connectivity (as the sum of all edge weights in the network, or global strength) between networks.
+
+# Results
+
+First we estimated a graphical LASSO network (tuning parameter gamma was set to .5 to generate a sparser network) for the high and low mental health groups separately (edge weight matrices for the low MH and high MH groups can be found in supplemental tables S4 and S7, respectively). Figure 1 presents a visualisation of both networks. In the low mental health network, each node is connected to two or more other nodes; negative and positive biases are negatively associated; and, the strongest edges connect memory biases with social interpretation biases. In contrast, the high mental health network is substantially less interconnected compared to the low mental health network with only three retained edges compared to eleven. In the high mental health network, no negative relationships were retained between the positive and negative cognitive biases. Additionally, the edges retained in both networks are weaker in the high mental health group. To formally compare the global strength of each network (the sum of edge strengths in the network) we used the NCT function from the _NetworkComparisonTest_ package [@R-NetworkComparisonTest]. We ran 1000 iterations resampling from the networks. The low-MH network (global strength = `r papaja::printnum(sum(abs(glasso_low$graph))/2)`) was more strongly connected overall than the high-MH network (global strength = `r papaja::printnum(sum(abs(glasso_high$graph))/2)`), and this difference was statistically significant, _p_ = `r papaja::printp(lh$glstrinv.pval)`. 
+
+It is possible that low connectivity in the high-MH group could be caused by low variance. We ran Brown-Forsythe tests for equality of variances for each bias to compare the high and low group. For all variables, the high-MH group had significantly less variance (all _p_ values `r bftest_min`). While significant, the differences are small. For example, positive interpretation bias for social scenarios had variances of `r var(low4$IB_S_Pos)` and `r var(high4$IB_S_Pos)` for the low-MH and high-MH groups, respectively. We do not think it is likely that of the small differences in variance entirely explains the low connectivity in the high-MH group, relative to the low-MH group. The following moderated network model approach analysis helps navigate this limitation by using the continuous measure of mental health.
+
+```{r fig.cap="Graphical LASSO Networks. The left and right panels present the graphical LASSO network from the low mental health group and the high mental health group, respectively. Each node represents a cognitive bias measure and each edge represents the (partial) correlation between the nodes it connects, after controlling for all other variables in the network. Thicker edges represent stronger associations. Blue edges indicate positive relationships, whereas red edges indicate negative relationships. \n Note. IB_S_Pos = Social Positive Interpretation Bias; IB_S_Neg = Social Negative Interpretation Bias; IB_N_Pos = Non-Social Negative Interpretation Bias; IB_N_Neg = Non-Social; MB_Pos = positive memory bias; MB_Neg = negative memory bias."}
+
+layout(t(1:2))
+plot(glasso_low, 
+     layout = layout_common, 
+     title = "low - MH plot", 
+     theme = "colorblind", 
+     labels = variable_names, 
+     vsize = 12, 
+     maximum = max_glass,
+     title.cex = 1,
+     label.cex = 1.1,
+     border.width = 1.8)
+
+plot(glasso_high, 
+     layout = layout_common, 
+     title = "high - MH plot", 
+     theme = "colorblind", 
+     labels = variable_names, 
+     vsize = 12, 
+     maximum = max_glass,
+     title.cex = 1,
+     label.cex = 1.1,
+     border.width = 1.8)
+```
+
+
+
+
+
+\newpage
+
+# References
+
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+<div id="refs" custom-style="Bibliography"></div>
+\endgroup
