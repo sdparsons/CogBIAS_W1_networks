@@ -23,7 +23,7 @@ authornote: |
   author note
 
 
-bibliography      : ["My Library.bib", "r-references.bib"]
+bibliography      : ["../My Library.bib", "../r-references.bib"]
 
 floatsintext      : yes
 figurelist        : no
@@ -56,7 +56,7 @@ knitr::opts_chunk$set(echo = FALSE)
 knitr::opts_chunk$set(fig.pos = "h")
 knitr::opts_chunk$set(tidy = TRUE)
 knitr::opts_chunk$set(results = 'hide')
-knitr::opts_chunk$set(cache = TRUE)
+knitr::opts_chunk$set(cache = FALSE)
 
 options(tinytex.verbose = TRUE)
 
@@ -110,13 +110,13 @@ r_refs(file = "r-references.bib")
 
 ```{r load data}
 
-demographics <- read.csv("Data/W1_demographics.csv", stringsAsFactors =  FALSE)
-scores2 <- read.spss("Data/W1_Q2.sav", to.data.frame = TRUE)
-AIBQ <- read.spss("Data/W1_AIBQ.sav", to.data.frame = TRUE)
-Memory <- read.spss("Data/W1_SRET.sav", to.data.frame = TRUE)
-MEM_raw <- read.spss("Data/Start_SRET_Masterfile.sav", to.data.frame = TRUE)
-AB_raw <- read.spss("Data/Dot-Probe SPSS Start.sav", to.data.frame = TRUE)
-AIBQ_raw <- read.spss("Data/Start_AIBQ_rawdata.sav", to.data.frame = TRUE)
+demographics <- read.csv("../Data/W1_demographics.csv", stringsAsFactors =  FALSE)
+scores2 <- read.spss("../Data/W1_Q2.sav", to.data.frame = TRUE)
+AIBQ <- read.spss("../Data/W1_AIBQ.sav", to.data.frame = TRUE)
+Memory <- read.spss("../Data/W1_SRET.sav", to.data.frame = TRUE)
+MEM_raw <- read.spss("../Data/Start_SRET_Masterfile.sav", to.data.frame = TRUE)
+AB_raw <- read.spss("../Data/Dot-Probe SPSS Start.sav", to.data.frame = TRUE)
+AIBQ_raw <- read.spss("../Data/Start_AIBQ_rawdata.sav", to.data.frame = TRUE)
 
 ```
 
@@ -173,8 +173,8 @@ CCBH2 <- CCBH %>%
 full_cor <- cor(CCBH2)
 full_cov <- cov(CCBH2)
 
-write.csv(full_cor, "Apendices/S8_FullSample_cor.csv")
-write.csv(full_cov, "Apendices/S9_FullSample_cov.csv")
+write.csv(full_cor, "../Apendices/S8_FullSample_cor.csv")
+write.csv(full_cov, "../Apendices/S9_FullSample_cov.csv")
 
 ###
 
@@ -255,9 +255,9 @@ max_glass <- max(low_glas_weights[which(low_glas_weights != 1)],
                  high_glas_weights[which(high_glas_weights != 1)]) # returns highest weight in the three samples' correlation matrices - to be used
 
 
-write.csv(low_glas_weights, "./Apendices/S4_low_glasso_weights.csv")
-#write.csv(mid_glas_weights, "./Apendices/mid_glasso_weights.csv")
-write.csv(high_glas_weights, "./Apendices/S7_high_glasso_weights.csv")
+write.csv(low_glas_weights, "../Apendices/S4_low_glasso_weights.csv")
+#write.csv(mid_glas_weights, "../Apendices/mid_glasso_weights.csv")
+write.csv(high_glas_weights, "../Apendices/S7_high_glasso_weights.csv")
 
 ##### plot the three networks
 
@@ -268,7 +268,7 @@ layout_common <- averageLayout(glasso_low,
 # plot the low and high sample networks
 # save this plot
 
-Cairo::Cairo(file="Figures/twoglasso.png", 
+Cairo::Cairo(file="../Figures/twoglasso.png", 
       type="png",
       bg = "white",
       units="in", 
@@ -406,7 +406,7 @@ high_m_sd <- high_m_sd %>%
 
 table2 <- cbind(low_m_sd, high_m_sd)
 
-write.csv(table2, "Apendices/S1_Table_2.csv")
+write.csv(table2, "../Apendices/S1_Table_2.csv")
 
 
 ```

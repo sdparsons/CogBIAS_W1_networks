@@ -2,9 +2,19 @@ Readme file for "Emotional information-processing correlates of positive mental 
 
 This repository can be found on the OSF (https://osf.io/mn5ek/) and github (https://github.com/sdparsons/CogBIAS_W1_networks). The repository contains all code, data, and output for the manuscript.
 
-Key files:
+## Key files:
 
-`CCBH in adolescence - Network analysis.Rmd` Contains the full code and text to run the core analyses and generate the manuscript pdf.
+### CCBH in adolescence - Network analysis.Rmd
+
+Contains the full code and text to run the core analyses and generate the manuscript pdf.
+
+### analysis_script.R
+
+Contains the full code to run all of the analyses. The code is the same as in the .Rmd file, but with the text and markdown structure removed. 
+
+### supplimental_analysis.Rmd
+
+Contains the code and text to generate the supplimental analyses pdf output. Located in the supplimental_analyses folder 
 
 
 
