@@ -14,11 +14,11 @@ Contains the full code to run all of the analyses. The code is the same as in th
 
 ### supplimental_analysis.Rmd
 
-Contains the code and text to generate the supplimental analyses pdf output. Located in the supplimental_analyses folder 
+Contains the code and text to generate the supplimental analyses pdf output. Located in the Supplimental_Analyses folder 
 
 
 
-File structure notes and key points
+## File structure notes and key points
 
 ```
 root

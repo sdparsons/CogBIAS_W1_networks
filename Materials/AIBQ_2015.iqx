@@ -1,0 +1,750 @@
+﻿
+
+This is the Adolescent Interpretation and Belief Questionnaire 
+© Copyright. Miers, A.C., Blöte, A. W., Bögels, S. M., & Westenberg, P. M. (2008).
+Adolescents’ Interpretation and Belief Questionnaire (AIBQ).
+
+This script was created by Charlotte Booth - CogBIAS researcher - charlotte.booth@psy.ox.ac.uk
+
+
+
+**********************************************************************************
+Questions
+**********************************************************************************
+ 
+
+*********************************    1     ****************************************
+
+<caption instructions>
+/ caption = "Instructions:~n~nThis task asks you to read a situation and imagine yourself in that situation.~nThe situation will always be displayed at the top of the page and underlined.~nYou first have to rate how likely each of three thoughts would be to pop into your mind in that situation.~nThen you have to choose which thought is the most believable out of the three.~nFinally, you will have to rate how you would feel if you found yourself in that situation.~nYou will do this for ten different situations.~nPlease click 'Next' to start the task!!"
+/position = (30%, 30%)
+</caption>
+
+
+<caption sit1non>
+/caption = "Situation 1:~nYou've received a new watch with a stopwatch function but you can't get it to work"
+/position = (10%, 10%)
+/ fontstyle = ("Calibri", -22, true, false, true, false, 5, 0)
+</caption>
+
+<caption sit1?non>
+/caption = "Why can't you get it to work?~nRate each interpretation on the scale from 1-5 for how much it would pop up in your mind"
+/position = (15%, 20%)
+/ fontstyle = ("Calibri", -22, true, true, false, false, 5, 0)
+</caption>
+
+<slider sit1nonneg>
+/caption = "1)  I've done something wrong and now it's broken:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 32%)
+/showtooltips = true
+</slider>
+
+<slider sit1nonneut>
+/caption = "2)  The watch is too complicated ; nobody would be able to work it:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 50%)
+/showtooltips = true
+</slider>
+
+<slider sit1nonpos>
+/caption = "3)  I just need more time and then I'll be able to work it:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 70%)
+/showtooltips = true
+</slider>
+
+<radiobuttons sit1nonforced>
+/caption = "Which thought is most believable?~n"
+/options = ("The watch is too complicated ; nobody would be able to work it", 
+           "I just need more time and then I'll be able to work it", 
+           "I've done something wrong and now it's broken")
+/ optionvalues = ("2", "1", "3")
+/position = (20%, 30%)
+</radiobuttons>
+
+<slider sit1nonfeelings>
+/caption = "How would you feel if you were in this situation? (On a scale from -3 to +3)~n"
+/labels = ("Really Bad", "Really Good")
+/range = (-3,+3)
+/slidersize = (50%, 5%)
+/position = (20%, 55%)
+/showtooltips = true
+</slider>
+
+******************************************         2        ********************************************
+<caption sit2soc>
+/caption = "Situation 2:~nYou've invited a group of classmates to your birthday party, but a few have not yet said if they are coming"
+/position = (10%, 10%)
+/ fontstyle = ("Calibri", -22, true, false, true, false, 5, 0)
+</caption>
+
+<caption sit2?soc>
+/caption = "Why haven't they said something yet?~nRate each interpretation on the scale from 1-5 for how much it would pop up in your mind"
+/position = (15%, 20%)
+/ fontstyle = ("Calibri", -22, true, true, false, false, 5, 0)
+</caption>
+
+<slider sit2socneg>
+/caption = "2)  They don't want to come because they don't like me:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 50%)
+/showtooltips = true
+</slider>
+
+<slider sit2socneut>
+/caption = "1)  They don't know if they can come or not:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 32%)
+/showtooltips = true
+</slider>
+
+<slider sit2socpos>
+/caption = "3)  They're definitely coming; they dont need to tell me that:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 70%)
+/showtooltips = true
+</slider>
+
+<radiobuttons sit2socforced>
+/caption = "Which thought is most believable?~n"
+/options = ("They don't want to come because they don't like me", 
+           "They don't know yet if they can come or not", 
+           "They're definitely coming; they don't need to tell me that")
+/optionvalues = ("3", "2", "1")
+/position = (20%, 30%)
+</radiobuttons>
+
+<slider sit2socfeelings>
+/caption = "How would you feel if you were in this situation? (On a scale from -3 to +3)~n"
+/labels = ("Really Bad", "Really Good")
+/range = (-3,+3)
+/slidersize = (50%, 5%)
+/position = (20%, 55%)
+/showtooltips = true
+</slider>
+
+*******************************************     3     *********************************************
+
+<caption sit3non>
+/caption = "Situation 3:~nYou've received bad marks for your last few tests"
+/position = (10%, 10%)
+/ fontstyle = ("Calibri", -22, true, false, true, false, 5, 0)
+</caption>
+
+<caption sit3?non>
+/caption = "Why has this happened?~nRate each interpretation on the scale from 1-5 for how much it would pop up in your mind"
+/position = (15%, 20%)
+/ fontstyle = ("Calibri", -22, true, true, false, false, 5, 0)
+</caption>
+
+<slider sit3nonneg>
+/caption = "2)  This subject is too difficult for me; I'll probably fail:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 50%)
+/showtooltips = true
+</slider>
+
+<slider sit3nonneut>
+/caption = "1)  The tests were really difficult and nearly everybody got bad marks:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 32%)
+/showtooltips = true
+</slider>
+
+<slider sit3nonpos>
+/caption = "3)  I need to work harder and then it'll be fine:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 70%)
+/showtooltips = true
+</slider>
+
+<radiobuttons sit3nonforced>
+/caption = "Which thought is most believable?~n"
+/options = ("This subject is too difficult for me; I'll probably fail", 
+           "The tests were really difficult and nearly everybody got bad marks", 
+           "I need to work harder and then it'll be fine")
+/optionvalues = ("3", "2", "1")
+/position = (20%, 30%)
+</radiobuttons>
+
+<slider sit3nonfeelings>
+/caption = "How would you feel if you were in this situation? (On a scale from -3 to +3)~n"
+/labels = ("Really Bad", "Really Good")
+/range = (-3,+3)
+/slidersize = (50%, 5%)
+/position = (20%, 55%)
+/showtooltips = true
+</slider>
+
+
+**************************************    4     **********************************************
+
+<caption sit4soc>
+/caption = "Situation 4:~nYou've just given a presentation in front of your class and afterwards no-one asks a question"
+/position = (10%, 10%)
+/ fontstyle = ("Calibri", -22, true, false, true, false, 5, 0)
+</caption>
+
+<caption sit4?soc>
+/caption = "Why doesn't anyone ask a question?~nRate each interpretation on the scale from 1-5 for how much it would pop up in your mind"
+/position = (15%, 20%)
+/ fontstyle = ("Calibri", -22, true, true, false, false, 5, 0)
+</caption>
+
+<slider sit4socneg>
+/caption = "3)  They didn't think my presentation was interesting:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 70%)
+/showtooltips = true
+</slider>
+
+<slider sit4socneut>
+/caption = "2)  It was nearly lunch so everybody wanted to leave:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 50%)
+/showtooltips = true
+</slider>
+
+<slider sit4socpos>
+/caption = "1)  They thought what I said was very clear and didn't need to ask anything:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 32%)
+/showtooltips = true
+</slider>
+
+<radiobuttons sit4socforced>
+/caption = "Which thought is most believable?~n"
+/options = ("They thought what I said was very clear and didn't need to ask anything", 
+           "It was nearly lunch so everybody wanted to leave",
+           "They didn't think my presentation was interesting")
+/optionvalues = ("1", "2", "3")
+/position = (20%, 30%)
+</radiobuttons>
+
+<slider sit4socfeelings>
+/caption = "How would you feel if you were in this situation? (On a scale from -3 to +3)~n"
+/labels = ("Really Bad", "Really Good")
+/range = (-3,+3)
+/slidersize = (50%, 5%)
+/position = (20%, 55%)
+/showtooltips = true
+</slider>
+
+********************************************     5      ******************************************************
+
+<caption sit5non>
+/caption = "Situation 5:~nYou're going to the cinema because there's a film you really want to see. When you get to the cinema, you see a long queue at the cashier for the film you want to see"
+/position = (10%, 10%)
+/ fontstyle = ("Calibri", -22, true, false, true, false, 5, 0)
+</caption>
+
+<caption sit5?non>
+/caption = "What's going on?~nRate each interpretation on the scale from 1-5 for how much it would pop up in your mind"
+/position = (15%, 20%)
+/ fontstyle = ("Calibri", -22, true, true, false, false, 5, 0)
+</caption>
+
+<slider sit5nonneg>
+/caption = "2)  Because so many people want to see the film; it'll be sold out before I can buy a ticket:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 50%)
+/showtooltips = true
+</slider>
+
+<slider sit5nonneut>
+/caption = "3)  Lots of people want to go to the cinema tonight:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 70%)
+/showtooltips = true
+</slider>
+
+<slider sit5nonpos>
+/caption = "1)  I've obviously chosen a really good film, because everybody wants to see it:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 32%)
+/showtooltips = true
+</slider>
+
+<radiobuttons sit5nonforced>
+/caption = "Which thought is most believable?~n"
+/options = ("I've obviously chosen a really good film, because everybody wants to see it", 
+           "Lots of people want to go to the cinema tonight", 
+           "Because so many people want to see the film; it'll be sold out before I can buy a ticket")
+/optionvalues = ("1", "2", "3")
+/position = (20%, 30%)
+</radiobuttons>
+
+<slider sit5nonfeelings>
+/caption = "How would you feel if you were in this situation? (On a scale from -3 to +3)~n"
+/labels = ("Really Bad", "Really Good")
+/range = (-3,+3)
+/slidersize = (50%, 5%)
+/position = (20%, 55%)
+/showtooltips = true
+</slider>
+
+*****************************************************     6     ********************************************************
+
+<caption sit6non>
+/caption = "Situation 6:~nSuddenly, you feel really sick"
+/position = (10%, 10%)
+/ fontstyle = ("Calibri", -22, true, false, true, false, 5, 0)
+</caption>
+
+<caption sit6?non>
+/caption = "Why do you feel sick?~nRate each interpretation on the scale from 1-5 for how much it would pop up in your mind"
+/position = (15%, 20%)
+/ fontstyle = ("Calibri", -22, true, true, false, false, 5, 0)
+</caption>
+
+<slider sit6nonneg>
+/caption = "2)  I'm really ill; I'll have to go to the doctor:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 50%)
+/showtooltips = true
+</slider>
+
+<slider sit6nonneut>
+/caption = "3)  Oh, everyone feels sick sometimes:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 70%)
+/showtooltips = true
+</slider>
+
+<slider sit6nonpos>
+/caption = "1)  I've eaten too many sweets; it's not that bad; it'll be over in a minute:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 32%)
+/showtooltips = true
+</slider>
+
+<radiobuttons sit6nonforced>
+/caption = "Which thought is most believable?~n"
+/options = ("I'm really ill; I'll have to go to the doctor", 
+           "Oh, everyone feels sick sometimes", 
+           "I've eaten too many sweets; it's not that bad; it'll be over in a minute")
+/optionvalues = ("3", "2", "1")
+/position = (20%, 30%)
+</radiobuttons>
+
+<slider sit6nonfeelings>
+/caption = "How would you feel if you were in this situation? (On a scale from -3 to +3)~n"
+/labels = ("Really Bad", "Really Good")
+/range = (-3,+3)
+/slidersize = (50%, 5%)
+/position = (20%, 55%)
+/showtooltips = true
+</slider>
+
+**********************************************   7   ***************************************************
+
+<caption sit7soc>
+/caption = "Situation 7:~nTwo classmates, who are standing talking to eachother, look at you"
+/position = (10%, 10%)
+/ fontstyle = ("Calibri", -22, true, false, true, false, 5, 0)
+</caption>
+
+<caption sit7?soc>
+/caption = "Why are they looking at you?~nRate each interpretation on the scale from 1-5 for how much it would pop up in your mind"
+/position = (15%, 20%)
+/ fontstyle = ("Calibri", -22, true, true, false, false, 5, 0)
+</caption>
+
+<slider sit7socneg>
+/caption = "1)  They're gossiping about me:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 32%)
+/showtooltips = true
+</slider>
+
+<slider sit7socneut>
+/caption = "3)  They just happen to be looking in my direction:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 70%)
+/showtooltips = true
+</slider>
+
+<slider sit7socpos>
+/caption = "2)  They like me and want me to go over to join them:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 50%)
+/showtooltips = true
+</slider>
+
+<radiobuttons sit7socforced>
+/caption = "Which thought is most believable?~n"
+/options = ("They like me and want me to go over to join them", 
+           "They're gossiping about me", 
+           "They just happen to be looking in my direction")
+/optionvalues = ("1", "3", "2")
+/position = (20%, 30%)
+</radiobuttons>
+
+<slider sit7socfeelings>
+/caption = "How would you feel if you were in this situation? (On a scale from -3 to +3)~n"
+/labels = ("Really Bad", "Really Good")
+/range = (-3,+3)
+/slidersize = (50%, 5%)
+/position = (20%, 55%)
+/showtooltips = true
+</slider>
+
+
+*********************************************    8   *****************************************************
+
+
+<caption sit8non>
+/caption = "Situation 8:~nYou've locked your bike up somewhere and when you go back for it later on, you can't find it"
+/position = (10%, 10%)
+/ fontstyle = ("Calibri", -22, true, false, true, false, 5, 0)
+</caption>
+
+<caption sit8?non>
+/caption = "Why can't you find your bike?~nRate each interpretation on the scale from 1-5 for how much it would pop up in your mind"
+/position = (15%, 20%)
+/ fontstyle = ("Calibri", -22, true, true, false, false, 5, 0)
+</caption>
+
+<slider sit8nonneg>
+/caption = "1)  It's been stolen:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 32%)
+/showtooltips = true
+</slider>
+
+<slider sit8nonneut>
+/caption = "3)  There are just so many bikes here that it's difficult to find it:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 70%)
+/showtooltips = true
+</slider>
+
+<slider sit8nonpos>
+/caption = "2)  I'm looking in the wrong place but it's definitely around here somewhere:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 50%)
+/showtooltips = true
+</slider>
+
+<radiobuttons sit8nonforced>
+/caption = "Which thought is most believable?~n"
+/options = ("There are just so many bikes here that it's difficult to find it", 
+           "I'm looking in the wrong place but it's definitely around here somewhere", 
+           "It's been stolen")
+/optionvalues = ("2", "1", "3")
+/position = (20%, 30%)
+</radiobuttons>
+
+<slider sit8nonfeelings>
+/caption = "How would you feel if you were in this situation? (On a scale from -3 to +3)~n"
+/labels = ("Really Bad", "Really Good")
+/range = (-3,+3)
+/slidersize = (50%, 5%)
+/position = (20%, 55%)
+/showtooltips = true
+</slider>
+
+*******************************************    9     ***********************************************
+
+<caption sit9soc>
+/caption = "Situation 9:~nYou're standing with a group of classmates. When you begin to talk, no-one looks at you"
+/position = (10%, 10%)
+/ fontstyle = ("Calibri", -22, true, false, true, false, 5, 0)
+</caption>
+
+<caption sit9?soc>
+/caption = "Why isn't anyone looking at you?~nRate each interpretation on the scale from 1-5 for how much it would pop up in your mind"
+/position = (15%, 20%)
+/ fontstyle = ("Calibri", -22, true, true, false, false, 5, 0)
+</caption>
+
+<slider sit9socneg>
+/caption = "1)  They don't want me hanging around because they don't like me:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 32%)
+/showtooltips = true
+</slider>
+
+<slider sit9socneut>
+/caption = "3)  I should've waited until my classmate had finished before I began talking:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 70%)
+/showtooltips = true
+</slider>
+
+<slider sit9socpos>
+/caption = "2)  They just happen to be looking at something else, but they are interested in what I have to say:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 50%)
+/showtooltips = true
+</slider>
+
+<radiobuttons sit9socforced>
+/caption = "Which thought is most believable?~n"
+/options = ("They don't want me hanging around because they don't like me", 
+           "I should've waited until my classmate had finished before I began talking", 
+           "They just happen to be looking at something else, but they are interested in what I have to say")
+/optionvalues = ("3", "2", "1")
+/position = (20%, 30%)
+</radiobuttons>
+
+<slider sit9socfeelings>
+/caption = "How would you feel if you were in this situation? (On a scale from -3 to +3)~n"
+/labels = ("Really Bad", "Really Good")
+/range = (-3,+3)
+/slidersize = (50%, 5%)
+/position = (20%, 55%)
+/showtooltips = true
+</slider>
+
+**********************************************    10     *********************************************************
+<caption sit10soc>
+/caption = "Situation 10:~nYou're standing on your own at a school party and somebody you don't know looks at you"
+/position = (10%, 10%)
+/ fontstyle = ("Calibri", -22, true, false, true, false, 5, 0)
+</caption>
+
+<caption sit10?soc>
+/caption = "Why is he or she looking at you?~nRate each interpretation on the scale from 1-5 for how much it would pop up in your mind"
+/position = (15%, 20%)
+/ fontstyle = ("Calibri", -22, true, true, false, false, 5, 0)
+</caption>
+
+<slider sit10socneg>
+/caption = "3)  I stand out like a sore thumb. He or she probably thinks I'm pathetic:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 70%)
+/showtooltips = true
+</slider>
+
+<slider sit10socneut>
+/caption = "2)  He or she just happens to be looking in my direction:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 50%)
+/showtooltips = true
+</slider>
+
+<slider sit10socpos>
+/caption = "1)  He or she likes me and wants to get my attention:~n"
+/labels = ("Doesn't pop up in my mind", "Might pop up in my mind", "Definitely pops up in my mind")
+/range = (1,5)
+/slidersize = (50%, 5%)
+/position = (15%, 32%)
+/showtooltips = true
+</slider>
+
+<radiobuttons sit10socforced>
+/caption = "Which thought is most believable?~n"
+/options = ("He or she likes me and wants to get my attention", 
+           "I stand out like a sore thumb. He or she probably thinks I'm pathetic", 
+           "He or she just happens to be looking in my direction")
+/optionvalues = ("1", "3", "2")
+/position = (20%, 30%)
+</radiobuttons>
+
+<slider sit10socfeelings>
+/caption = "How would you feel if you were in this situation? (On a scale from -3 to +3)~n"
+/labels = ("Really Bad", "Really Good")
+/range = (-3,+3)
+/slidersize = (50%, 5%)
+/position = (20%, 55%)
+/showtooltips = true
+</slider>
+
+***********************************************
+Survey Pages
+***********************************************
+
+<surveypage instructions>
+/questions = [1=instructions]
+</surveypage>
+
+
+<surveypage sit1page1>
+/questions = [1=sit1non; 2=sit1?non; 3=sit1nonneg; 4=sit1nonneut; 5=sit1nonpos]
+</surveypage>
+
+<surveypage sit1page2>
+/questions = [1=sit1non; 2=sit1nonforced; 3=sit1nonfeelings]
+</surveypage>
+
+<surveypage sit2page1>
+/questions = [1=sit2soc; 2=sit2?soc; 3=sit2socneut; 4=sit2socneg; 5=sit2socpos]
+</surveypage>
+
+<surveypage sit2page2>
+/questions = [1=sit2soc; 2=sit2socforced; 3=sit2socfeelings]
+</surveypage>
+
+<surveypage sit3page1>
+/questions = [1=sit3non; 2=sit3?non; 3=sit3nonneut; 4=sit3nonneg; 5=sit3nonpos]
+</surveypage>
+
+<surveypage sit3page2>
+/questions = [1=sit3non; 2=sit3nonforced; 3=sit3nonfeelings]
+</surveypage>
+
+<surveypage sit4page1>
+/questions = [1=sit4soc; 2=sit4?soc; 3=sit4socpos; 4=sit4socneut; 5=sit4socneg]
+</surveypage>
+
+<surveypage sit4page2>
+/questions = [1=sit4soc; 2=sit4socforced; 3=sit4socfeelings]
+</surveypage>
+
+<surveypage sit5page1>
+/questions = [1=sit5non; 2=sit5?non; 3=sit5nonpos; 4=sit5nonneg; 5=sit5nonneut]
+</surveypage>
+
+<surveypage sit5page2>
+/questions = [1=sit5non; 2=sit5nonforced; 3=sit5nonfeelings]
+</surveypage>
+
+<surveypage sit6page1>
+/questions = [1=sit6non; 2=sit6?non; 3=sit6nonpos; 4=sit6nonneg; 5=sit6nonneut]
+</surveypage>
+
+<surveypage sit6page2>
+/questions = [1=sit6non; 2=sit6nonforced; 3=sit6nonfeelings]
+</surveypage>
+
+<surveypage sit7page1>
+/questions = [1=sit7soc; 2=sit7?soc; 3=sit7socneg; 4=sit7socpos; 5=sit7socneut]
+</surveypage>
+
+<surveypage sit7page2>
+/questions = [1=sit7soc; 2=sit7socforced; 3=sit7socfeelings]
+</surveypage>
+
+<surveypage sit8page1>
+/questions = [1=sit8non; 2=sit8?non; 3=sit8nonneg; 4=sit8nonpos; 5=sit8nonneut]
+</surveypage>
+
+<surveypage sit8page2>
+/questions = [1=sit8non; 2=sit8nonforced; 3=sit8nonfeelings]
+</surveypage>
+
+<surveypage sit9page1>
+/questions = [1=sit9soc; 2=sit9?soc; 3=sit9socneg; 4=sit9socpos; 5=sit9socneut]
+</surveypage>
+
+<surveypage sit9page2>
+/questions = [1=sit9soc; 2=sit9socforced; 3=sit9socfeelings]
+</surveypage>
+
+<surveypage sit10page1>
+/questions = [1=sit10soc; 2=sit10?soc; 3=sit10socpos; 4=sit10socneut; 5=sit10socneg]
+</surveypage>
+
+<surveypage sit10page2>
+/questions = [1=sit10soc; 2=sit10socforced; 3=sit10socfeelings]
+</surveypage>
+
+***********************************************
+Survey
+***********************************************
+
+<survey AIBQ>
+/pages = [1=instructions; 2=sit1page1; 3=sit1page2; 4=sit2page1; 5=sit2page2; 6=sit3page1; 7=sit3page2; 8=sit4page1; 9=sit4page2; 10=sit5page1; 11=sit5page2; 12=sit6page1; 13=sit6page2; 14=sit7page1; 15=sit7page2; 16=sit8page1; 17=sit8page2;
+18=sit9page1; 19=sit9page2; 20=sit10page1; 21=sit10page2]
+/itemfontstyle = ("Calibri", -20, true, false, false, false, 5, 0)
+/itemspacing = 5%
+/showpagenumbers = false
+/ showquestionnumbers = false
+/ showprogressbar = true
+</survey>
+
+
+***********************************************
+Participant instructions
+***********************************************
+
+<page intro> 
+^^^Interpretation and Belief Questionnaire
+^^In this task we want you read a situation that might happen to someone your age. We will then ask you to rate how likely it would be that three different thoughts would pop into your mind in relation to that situation.  
+^^We will then ask you to choose which of the three thoughts is most believable and how you would feel if you were in that situation.
+^^You can take as long as you need to complete this task. When you are ready to begin, press the spacebar.
+</page>
+
+<page end>
+Well done! You have completed the task.
+</page>
+
+<instruct>
+/ lastlabel = ("Press the spacebar to continue")
+/ nextlabel = ("Press the spacebar to continue")
+/ nextkey = (" ")
+/ fontstyle = ("Arial", 16pt, false, false, false, false, 5)
+</instruct>
+
+
+<defaults>
+/screencolor = (200, 200, 200)
+</defaults>
+
+
+
+
+
+
+
+

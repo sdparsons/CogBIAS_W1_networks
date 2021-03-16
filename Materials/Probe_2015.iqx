@@ -1,0 +1,761 @@
+﻿
+Adolescent dot-probe with pain-neutral, angry-neutral and happy-neutral trials = 56 trials each
+Location probes
+CogBIAS Project 2015
+
+
+
+<defaults>
+/ screencolor = (black)
+/ txbgcolor = (black)
+/ txcolor = (white)
+/ inputdevice = keyboard
+/ posttrialpause = 500
+</defaults>
+
+
+<text error>
+/ items = error
+/font = ("Arial", 32, 700, 0, 34)
+/ color = (red)
+/ position =(50,60)
+</text>
+
+<item error>
+/1 ="error"			  		
+</item>
+
+<text fixation>
+/ items = ("+")
+/ font = ("Arial", 38, 700, 0, 34)
+</text>
+
+<text erasefixation>
+/ items = ("+")
+/ font = ("Arial", 38, 700, 0, 34)
+/ txcolor = (black)
+</text>
+
+<shape erasefaces>
+/ color = (black)
+/ size = (90%, 80%)
+</shape>
+
+<text Zprobeleft>
+/items = ("Z")
+/ font = ("Arial", 20, 700, 0, 34)
+/txcolor = (white)
+/position = (30%, 50%)
+</text>
+
+<text Zproberight>
+/items = ("Z")
+/ font = ("Arial", 20, 700, 0, 34)
+/txcolor = (white)
+/position = (70%, 50%)
+</text>
+
+<text Mprobeleft>
+/items = ("M")
+/ font = ("Arial", 20, 700, 0, 34)
+/txcolor = (white)
+/position = (30%, 50%)
+</text>
+
+<text Mproberight>
+/items = ("M")
+/ font = ("Arial", 20, 700, 0, 34)
+/txcolor = (white)
+/position = (70%, 50%)
+</text>
+
+
+
+**********************************
+
+<picture happyleft>
+/items = happyleft
+/position = (30%, 50%)
+/select = sequence
+/size = (230, 230)
+</picture>
+
+<item happyleft>
+/1 = "SF1ha.jpg"
+/2= "SF2ha.jpg"
+/3= "SF3ha.jpg"
+/4= "SM2ha.jpg"
+/5= "SM3ha.jpg"
+/6= "SM4ha.jpg"
+/7= "SM5ha.jpg"
+</item>
+
+<picture happyright>
+/items = happyright
+/position = (70%, 50%)
+/select = sequence
+/size = (230, 230)
+</picture>
+
+<item happyright>
+/1 = "SF1ha.jpg"
+/2= "SF2ha.jpg"
+/3= "SF3ha.jpg"
+/4= "SM2ha.jpg"
+/5= "SM3ha.jpg"
+/6= "SM4ha.jpg"
+/7= "SM5ha.jpg"
+</item>
+
+*****************************
+
+<picture angryleft>
+/items = angryleft
+/position = (30%, 50%)
+/select = sequence
+/size = (230, 230)
+</picture>
+
+<item angryleft>
+/1 = "SF1an.jpg"
+/2= "SF2an.jpg"
+/3= "SF3an.jpg"
+/4= "SM2an.jpg"
+/5= "SM3an.jpg"
+/6= "SM4an.jpg"
+/7= "SM5an.jpg"
+</item>
+
+<picture angryright>
+/items = angryright
+/position = (70%, 50%)
+/select = sequence
+/size = (230, 230)
+</picture>
+
+<item angryright>
+/1 = "SF1an.jpg"
+/2= "SF2an.jpg"
+/3= "SF3an.jpg"
+/4= "SM2an.jpg"
+/5= "SM3an.jpg"
+/6= "SM4an.jpg"
+/7= "SM5an.jpg"
+</item>
+
+**************************
+
+<picture painleft>
+/items = painleft
+/position = (30%, 50%)
+/select = sequence
+/size = (230, 230)
+</picture>
+
+<item painleft>
+/1 = "SF1pa.jpg"
+/2= "SF2pa.jpg"
+/3= "SF3pa.jpg"
+/4= "SM2pa.jpg"
+/5= "SM3pa.jpg"
+/6= "SM4pa.jpg"
+/7= "SM5pa.jpg"
+</item>
+
+<picture painright>
+/items = painright
+/position = (70%, 50%)
+/select = sequence
+/size = (230, 230)
+</picture>
+
+<item painright>
+/1 = "SF1pa.jpg"
+/2= "SF2pa.jpg"
+/3= "SF3pa.jpg"
+/4= "SM2pa.jpg"
+/5= "SM3pa.jpg"
+/6= "SM4pa.jpg"
+/7= "SM5pa.jpg"
+</item>
+
+**********************************
+
+<picture neutralleft>
+/items = neutralleft
+/position = (30%, 50%)
+/select = sequence
+/size = (230, 230)
+</picture>
+
+<item neutralleft>
+/1 = "SF1ne.jpg"
+/2= "SF2ne.jpg"
+/3= "SF3ne.jpg"
+/4= "SM2ne.jpg"
+/5= "SM3ne.jpg"
+/6= "SM4ne.jpg"
+/7= "SM5ne.jpg"
+</item>
+
+<picture neutralright>
+/items = neutralright
+/position = (70%, 50%)
+/select = sequence
+/size = (230, 230)
+</picture>
+
+<item neutralright>
+/1 = "SF1ne.jpg"
+/2= "SF2ne.jpg"
+/3= "SF3ne.jpg"
+/4= "SM2ne.jpg"
+/5= "SM3ne.jpg"
+/6= "SM4ne.jpg"
+/7= "SM5ne.jpg"
+</item>
+
+<text rest>
+/items = ("Rest")
+/ fontstyle = ("Arial", 30pt, false, false, false, false, 5, 1)
+/position = (50%, 30%)
+/txcolor = (yellow)
+</text>
+
+<clock restclock>
+/ format = "mm:ss"
+/mode = timer
+/ fontstyle = ("Arial", 30pt, false, false, false, false, 5, 1)
+/ resetrate = trial
+/ txcolor = yellow
+/ txbgcolor = black
+/ position = (50%, 50%)
+/timeout = 30000
+</clock>
+
+
+***************************************************
+
+<trial rest>
+/stimulusframes = [1=rest, restclock]
+/trialduration = clock.restclock.timeout
+/recorddata = false
+</trial>
+
+
+***************************************************
+
+<trial practiceleftZ>
+/correctresponse = (44)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/iscorrectresponse = [trial.practiceleftZ < 3000 && trial.practiceleftZ.response == 44]
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation; 1000=Zprobeleft]
+/recorddata = false
+</trial>
+
+<trial practicerightZ>
+/correctresponse = (44)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/iscorrectresponse = [trial.practicerightZ < 3000 && trial.practicerightZ.response == 44]
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation; 1000=Zproberight]
+/recorddata = false
+</trial>
+
+<trial practiceleftM>
+/correctresponse = (50)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/iscorrectresponse = [trial.practiceleftM < 3000 && trial.practiceleftM.response == 50]
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation; 1000=Mprobeleft]
+/recorddata = false
+</trial>
+
+<trial practicerightM>
+/correctresponse = (50)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/iscorrectresponse = [trial.practicerightM < 3000 && trial.practicerightM.response == 50]
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation; 1000=Mproberight]
+/recorddata = false
+</trial>
+
+<trial practicefacesleftZ>
+/correctresponse = (44)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation, neutralleft, neutralright; 1000=erasefaces, Zprobeleft]
+/iscorrectresponse = [trial.practicefacesleftZ < 3000 && trial.practicefacesleftZ.response == 44]
+</trial>
+
+<trial practicefacesrightZ>
+/correctresponse = (44)
+/validresponse = (50, 44)
+/errormessage = true(error,400)
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation, neutralleft, neutralright; 1000=erasefaces, Zproberight]
+/iscorrectresponse = [trial.practicefacesrightZ < 3000 && trial.practicefacesrightZ.response == 44]
+</trial>
+
+<trial practicefacesleftM>
+/correctresponse = (50)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation, neutralleft, neutralright; 1000=erasefaces, Mprobeleft]
+/iscorrectresponse = [trial.practicefacesleftM < 3000 && trial.practicefacesleftM.response == 50]
+</trial>
+
+<trial practicefacesrightM>
+/correctresponse = (50)
+/validresponse = (50, 44)
+/errormessage = true(error,400)
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation, neutralleft, neutralright; 1000=erasefaces, Mproberight]
+/iscorrectresponse = [trial.practicefacesrightM < 3000 && trial.practicefacesrightM.response == 50]
+</trial>
+
+
+***************************************************************************************************************
+
+<trial painleftcongruentZ>
+/correctresponse = (44)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/iscorrectresponse = [trial.painleftcongruentZ < 3000 && trial.painleftcongruentZ.response == 44]
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation, painleft, neutralright; 1000=erasefaces, Zprobeleft]
+/ontrialend = [if (trial.painleftcongruentz.correct) {values.correct_paincon += 1; values.sumrt_paincon += trial.painleftcongruentz.latency}]
+</trial>
+
+<trial painleftincongruentZ>
+/correctresponse = (44)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/iscorrectresponse = [trial.painleftincongruentZ < 3000 && trial.painleftincongruentZ.response == 44]
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation, painleft, neutralright; 1000=erasefaces, Zproberight]
+/ontrialend = [if (trial.painleftincongruentz.correct) {values.correct_painincon += 1; values.sumrt_painincon += trial.painleftincongruentz.latency}]
+</trial>
+
+<trial painrightcongruentZ>
+/correctresponse = (44)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/iscorrectresponse = [trial.painrightcongruentZ < 3000 && trial.painrightcongruentZ.response == 44]
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation, painright, neutralleft; 1000=erasefaces, Zproberight]
+/ontrialend = [if (trial.painrightcongruentz.correct) {values.correct_paincon += 1; values.sumrt_paincon += trial.painrightcongruentz.latency}]
+</trial>
+
+<trial painrightincongruentZ>
+/correctresponse = (44)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/iscorrectresponse = [trial.painrightincongruentZ < 3000 && trial.painrightincongruentZ.response == 44]
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation, painright, neutralleft; 1000=erasefaces, Zprobeleft]
+/ontrialend = [if (trial.painrightincongruentz.correct) {values.correct_painincon += 1; values.sumrt_painincon += trial.painrightincongruentz.latency}]
+</trial>
+
+<trial painleftcongruentM>
+/correctresponse = (50)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/iscorrectresponse = [trial.painleftcongruentM < 3000 && trial.painleftcongruentM.response == 50]
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation, painleft, neutralright; 1000=erasefaces, Mprobeleft]
+/ontrialend = [if (trial.painleftcongruentm.correct) {values.correct_paincon += 1; values.sumrt_paincon += trial.painleftcongruentm.latency}]
+</trial>
+
+<trial painleftincongruentM>
+/correctresponse = (50)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/iscorrectresponse = [trial.painleftincongruentM < 3000 && trial.painleftincongruentM.response == 50]
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation, painleft, neutralright; 1000=erasefaces, Mproberight]
+/ontrialend = [if (trial.painleftincongruentm.correct) {values.correct_painincon += 1; values.sumrt_painincon += trial.painleftincongruentm.latency}]
+</trial>
+
+<trial painrightcongruentM>
+/correctresponse = (50)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/iscorrectresponse = [trial.painrightcongruentM < 3000 && trial.painrightcongruentM.response == 50]
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation, painright, neutralleft; 1000=erasefaces, Mproberight]
+/ontrialend = [if (trial.painrightcongruentm.correct) {values.correct_paincon += 1; values.sumrt_paincon += trial.painrightcongruentm.latency}]
+</trial>
+
+<trial painrightincongruentM>
+/correctresponse = (50)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/iscorrectresponse = [trial.painrightincongruentM < 3000 && trial.painrightincongruentM.response == 50]
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation, painright, neutralleft; 1000=erasefaces, Mprobeleft]
+/ontrialend = [if (trial.painrightincongruentm.correct) {values.correct_painincon += 1; values.sumrt_painincon += trial.painrightincongruentm.latency}]
+</trial>
+**********************************************************************************************************
+
+<trial angryleftcongruentZ>
+/correctresponse = (44)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/iscorrectresponse = [trial.angryleftcongruentZ < 3000 && trial.angryleftcongruentZ.response == 44]
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation, angryleft, neutralright; 1000=erasefaces, Zprobeleft]
+/ontrialend = [if (trial.angryleftcongruentz.correct) {values.correct_angrycon += 1; values.sumrt_angrycon += trial.angryleftcongruentz.latency}]
+</trial>
+
+<trial angryleftincongruentZ>
+/correctresponse = (44)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/iscorrectresponse = [trial.angryleftincongruentZ < 3000 && trial.angryleftincongruentZ.response == 44]
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation, angryleft, neutralright; 1000=erasefaces, Zproberight]
+/ontrialend = [if (trial.angryleftincongruentz.correct) {values.correct_angryincon += 1; values.sumrt_angryincon +=trial.angryleftincongruentz.latency}]
+</trial>
+
+<trial angryrightcongruentZ>
+/correctresponse = (44)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/iscorrectresponse = [trial.angryrightcongruentZ < 3000 && trial.angryrightcongruentZ.response == 44]
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation, angryright, neutralleft; 1000=erasefaces, Zproberight]
+/ontrialend = [if (trial.angryrightcongruentz.correct) {values.correct_angrycon += 1; values.sumrt_angrycon += trial.angryrightcongruentz.latency}]
+</trial>
+
+<trial angryrightincongruentZ>
+/correctresponse = (44)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/iscorrectresponse = [trial.angryrightincongruentZ < 3000 && trial.angryrightincongruentZ.response == 44]
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation, angryright, neutralleft; 1000=erasefaces, Zprobeleft]
+/ontrialend = [if (trial.angryrightincongruentz.correct) {values.correct_angryincon += 1; values.sumrt_angryincon += trial.angryrightincongruentz.latency}]
+</trial>
+
+<trial angryleftcongruentM>
+/correctresponse = (50)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/iscorrectresponse = [trial.angryleftcongruentM < 3000 && trial.angryleftcongruentM.response == 50]
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation, angryleft, neutralright; 1000=erasefaces, Mprobeleft]
+/ontrialend = [if (trial.angryleftcongruentm.correct) {values.correct_angrycon += 1; values.sumrt_angrycon += trial.angryleftcongruentm.latency}]
+</trial>
+
+<trial angryleftincongruentM>
+/correctresponse = (50)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/iscorrectresponse = [trial.angryleftincongruentM < 3000 && trial.angryleftincongruentM.response == 50]
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation, angryleft, neutralright; 1000=erasefaces, Mproberight]
+/ontrialend = [if (trial.angryleftincongruentm.correct) {values.correct_angryincon += 1; values.sumrt_angryincon +=trial.angryleftincongruentm.latency}]
+</trial>
+
+<trial angryrightcongruentM>
+/correctresponse = (50)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/iscorrectresponse = [trial.angryrightcongruentM < 3000 && trial.angryrightcongruentM.response == 50]
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation, angryright, neutralleft; 1000=erasefaces, Mproberight]
+/ontrialend = [if (trial.angryrightcongruentm.correct) {values.correct_angrycon += 1; values.sumrt_angrycon += trial.angryrightcongruentm.latency}]
+</trial>
+
+<trial angryrightincongruentM>
+/correctresponse = (50)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/iscorrectresponse = [trial.angryrightincongruentM < 3000 && trial.angryrightincongruentM.response == 50]
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation, angryright, neutralleft; 1000=erasefaces, Mprobeleft]
+/ontrialend = [if (trial.angryrightincongruentm.correct) {values.correct_angryincon += 1; values.sumrt_angryincon += trial.angryrightincongruentm.latency}]
+</trial>
+
+
+***************************************************************************************************************
+
+<trial happyleftcongruentZ>
+/correctresponse = (44)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/iscorrectresponse = [trial.happyleftcongruentZ < 3000 && trial.happyleftcongruentZ.response == 44]
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation, happyleft, neutralright; 1000=erasefaces, Zprobeleft]
+/ontrialend = [if (trial.happyleftcongruentz.correct) {values.correct_happycon += 1; values.sumrt_happycon += trial.happyleftcongruentz.latency}]
+</trial>
+
+<trial happyleftincongruentZ>
+/correctresponse = (44)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/iscorrectresponse = [trial.happyleftincongruentZ < 3000 && trial.happyleftincongruentZ.response == 44]
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation, happyleft, neutralright; 1000=erasefaces, Zproberight]
+/ontrialend = [if (trial.happyleftincongruentz.correct) {values.correct_happyincon += 1; values.sumrt_happyincon += trial.happyleftincongruentz.latency}]
+</trial>
+
+<trial happyrightcongruentZ>
+/correctresponse = (44)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/iscorrectresponse = [trial.happyrightcongruentZ < 3000 && trial.happyrightcongruentZ.response == 44]
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation, happyright, neutralleft; 1000=erasefaces, Zproberight]
+/ontrialend = [ if (trial.happyrightcongruentz.correct) {values.correct_happycon += 1; values.sumrt_happycon += trial.happyrightcongruentz.latency}]
+</trial>
+
+<trial happyrightincongruentZ>
+/correctresponse = (44)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/iscorrectresponse = [trial.happyrightincongruentZ < 3000 && trial.happyrightincongruentZ.response == 44]
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation, happyright, neutralleft; 1000=erasefaces, Zprobeleft]
+/ontrialend = [if (trial.happyrightincongruentz.correct) {values.correct_happyincon += 1; values.sumrt_happyincon += trial.happyrightincongruentz.latency}]
+</trial>
+
+<trial happyleftcongruentM>
+/correctresponse = (50)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/iscorrectresponse = [trial.happyleftcongruentM < 3000 && trial.happyleftcongruentM.response == 50]
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation, happyleft, neutralright; 1000=erasefaces, Mprobeleft]
+/ontrialend = [if (trial.happyleftcongruentm.correct) {values.correct_happycon += 1; values.sumrt_happycon += trial.happyleftcongruentm.latency}]
+</trial>
+
+<trial happyleftincongruentM>
+/correctresponse = (50)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/iscorrectresponse = [trial.happyleftincongruentM < 3000 && trial.happyleftincongruentM.response == 50]
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation, happyleft, neutralright; 1000=erasefaces, Mproberight]
+/ontrialend = [if (trial.happyleftincongruentm.correct) {values.correct_happyincon += 1; values.sumrt_happyincon += trial.happyleftincongruentm.latency}]
+</trial>
+
+<trial happyrightcongruentM>
+/correctresponse = (50)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/iscorrectresponse = [trial.happyrightcongruentM < 3000 && trial.happyrightcongruentM.response == 50]
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation, happyright, neutralleft; 1000=erasefaces, Mproberight]
+/ontrialend = [ if (trial.happyrightcongruentm.correct) {values.correct_happycon += 1; values.sumrt_happycon += trial.happyrightcongruentm.latency}]
+</trial>
+
+<trial happyrightincongruentM>
+/correctresponse = (50)
+/validresponse = (44, 50)
+/errormessage = true(error,400)
+/iscorrectresponse = [trial.happyrightincongruentM < 3000 && trial.happyrightincongruentM.response == 50]
+/response = timeout (3000)
+/stimulustimes = [0=fixation; 500=erasefixation, happyright, neutralleft; 1000=erasefaces, Mprobeleft]
+/ontrialend = [if (trial.happyrightincongruentm.correct) {values.correct_happyincon += 1; values.sumrt_happyincon += trial.happyrightincongruentm.latency}]
+</trial>
+
+
+
+***************************************************************************************************************
+
+
+
+<block practice1>
+/preinstructions = (practice1)
+/trials = [1-8=noreplace(practiceleftZ, practicerightZ, practiceleftM, practicerightM)]
+/recorddata = false
+</block>
+
+<block practice2>
+/preinstructions = (practice2)
+/trials = [1-14=noreplace(practicefacesleftZ, practicefacesrightZ, practicefacesleftM, practicefacesrightM)]
+/ postinstructions = (task)
+/recorddata = false
+</block>
+
+<block happy>
+/trials = [1-56=noreplace(happyleftcongruentZ, happyleftincongruentZ, happyrightcongruentZ, happyrightincongruentZ, happyleftcongruentM, happyleftincongruentM, happyrightcongruentM, happyrightincongruentM)] 
+</block>
+
+<block angry>
+/trials = [1-56=noreplace(angryleftcongruentZ, angryleftincongruentZ, angryrightcongruentZ, angryrightincongruentZ, angryleftcongruentM, angryleftincongruentM, angryrightcongruentM, angryrightincongruentM)]
+</block>
+
+<block pain>
+/trials = [1-56=noreplace(painleftcongruentZ, painleftincongruentZ, painrightcongruentZ, painrightincongruentZ, painleftcongruentM, painleftincongruentM, painrightcongruentM, painrightincongruentM)]
+</block>
+
+<block rest>
+/trials = [1=rest]
+</block>
+
+<instruct>
+/ nextkey = (" ")
+/nextlabel = "Press spacebar"
+/ screencolor = (black)
+/ txcolor = (white)
+/ font = ("Arial", 18, 700, 0, 34)
+</instruct>
+
+<page practice1>
+^^ This is the Z and M game
+^^When you see the letter Z you have to push that letter on your keyboard as fast as you can.
+^^When you see the letter M you have to push that letter on your keyboard as fast as you can.
+^^Keep your left index finger on Z and right index finger on M so you can respond quickly.
+^^A cross will appear in the middle to help you focus your attention.
+^^^Press spacebar to start the first practice.
+</page>
+
+<page practice2>
+^^Well done!
+^^Now it is going to get a bit more difficult. 
+^^Before the letters appear you will notice some faces appear, but your task is still the same.
+^^Press Z or M as soon as you see them and use the cross to focus your attention.
+^^Remember that Z and M can appear on either the left or right, so be careful not to make too many errors.
+^^^Press spacebar to start the final practice.
+</page>
+
+
+<page task>
+^^Great job!
+^^Now you can start the real task.
+^^You will get two quick breaks in the experiment to have a stretch.
+^^Get your fingers ready on the Z and M keys!
+^^^Good luck :)
+</page>
+
+
+************************************************ Mood Scales ****************************************************
+<slider happ>
+/caption = "How HAPPY do you feel right now?"
+/labels = ("Not at all happy", "Extremely happy")
+/range = (1, 10)
+/slidersize = (50, 10)
+/position = (15, 25)
+/increment = 1
+</slider>
+
+<slider sad>
+/caption = "How SAD do you feel right now?"
+/labels = ("Not at all sad", "Extremely sad")
+/range = (1, 10)
+/slidersize = (50, 10)
+/position = (15, 50)
+/increment = 1
+</slider>
+
+<surveypage moodscales1>
+/caption = "We are interested in how you feel at this exact moment in time"
+/questions = [1=happ; 2=sad]
+</surveypage>
+
+<survey moodscales1>
+/pages = [1=moodscales1]
+/showbackbutton = false
+/showpagenumbers = false
+/showquestionnumbers = false
+/finishlabel = "Next"
+/fontstyle = ("Arial", 16pt)
+</survey>
+
+<surveypage moodscales2>
+/caption = "We are interested in how you feel at this exact moment in time"
+/questions = [1=happ; 2=sad]
+</surveypage>
+
+<survey moodscales2>
+/pages = [1=moodscales2]
+/showbackbutton = false
+/showpagenumbers = false
+/showquestionnumbers = false
+/finishlabel = "Next"
+/fontstyle = ("Arial", 16pt)
+</survey>
+
+
+************************************* Randomized blocks ********************************************
+
+<expt dotprobe1>
+/blocks = [1=moodscales1; 2=practice1; 3=practice2; 4=happy; 5=rest; 6=angry; 7=rest; 8=pain; 9=moodscales2]
+/ subjects = (1 of 6)
+</expt>
+
+<expt dotprobe2>
+/blocks = [1=moodscales1; 2=practice1; 3=practice2; 4=happy; 5=rest; 6=pain; 7=rest; 8=angry; 9=moodscales2]
+/ subjects = (2 of 6)
+</expt>
+
+<expt dotprobe3>
+/blocks = [1=moodscales1; 2=practice1; 3=practice2; 4=pain; 5=rest; 6=happy; 7=rest; 8=angry; 9=moodscales2]
+/ subjects = (3 of 6)
+</expt>
+
+<expt dotprobe4>
+/blocks = [1=moodscales1; 2=practice1; 3=practice2; 4=pain; 5=rest; 6=angry; 7=rest; 8=happy; 9=moodscales2]
+/ subjects = (4 of 6)
+</expt>
+
+<expt dotprobe5>
+/blocks = [1=moodscales1; 2=practice1; 3=practice2; 4=angry; 5=rest; 6=pain; 7=rest; 8=happy; 9=moodscales2]
+/ subjects = (5 of 6)
+</expt>
+
+<expt dotprobe6>
+/blocks = [1=moodscales1; 2=practice1; 3=practice2; 4=angry; 5=rest; 6=happy; 7=rest; 8=pain; 9=moodscales2]
+/ subjects = (6 of 6)
+</expt>
+
+
+****************************************** Summary data ************************************************
+<summarydata Summary>
+/columns = [script.subjectid, expressions.total_correct, expressions.percent_errors, expressions.angrybias, expressions.happybias, expressions.painbias]
+</summarydata>
+
+<values>
+/correct_angrycon = (trial.angryleftcongruentm.correctcount+trial.angryleftcongruentz.correctcount+trial.angryrightcongruentm.correctcount+trial.angryrightcongruentz.correctcount)
+/correct_angryincon = (trial.angryleftincongruentm.correctcount+trial.angryleftincongruentz.correctcount+trial.angryrightincongruentm.correctcount+trial.angryrightincongruentz.correctcount)
+
+/correct_happycon = (trial.happyleftcongruentm.correctcount+trial.happyleftcongruentz.correctcount+trial.happyrightcongruentm.correctcount+trial.happyrightcongruentz.correctcount)
+/correct_happyincon = (trial.happyleftincongruentm.correctcount+trial.happyleftincongruentz.correctcount+trial.happyrightincongruentm.correctcount+trial.happyrightincongruentz.correctcount)
+
+/correct_paincon = (trial.painleftcongruentm.correctcount+trial.painleftcongruentz.correctcount+trial.painrightcongruentm.correctcount+trial.painrightcongruentz.correctcount)
+/correct_painincon = (trial.painleftincongruentm.correctcount+trial.painleftincongruentz.correctcount+trial.painrightincongruentm.correctcount+trial.painrightincongruentz.correctcount)
+
+/sumrt_angrycon = 0
+/sumrt_angryincon = 0
+
+/sumrt_happycon = 0
+/sumrt_happyincon= 0
+
+/sumrt_paincon = 0
+/sumrt_painincon = 0
+</values>
+
+
+<expressions>
+/total_correct = values.correct_angrycon+values.correct_angryincon+values.correct_happycon+values.correct_happyincon+values.correct_paincon+values.correct_painincon
+/percent_errors = (1-(expressions.total_correct/168))*100
+/angrybias = (values.sumrt_angryincon/values.correct_angryincon) - (values.sumrt_angrycon/values.correct_angrycon)
+/happybias = (values.sumrt_happyincon/values.correct_happyincon) - (values.sumrt_happycon/values.correct_happycon)
+/painbias = (values.sumrt_painincon/values.correct_painincon) - (values.sumrt_paincon/values.correct_paincon)
+</expressions>
+
+
+
+
+
+

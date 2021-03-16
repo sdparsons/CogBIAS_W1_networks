@@ -1,0 +1,231 @@
+﻿
+
+
+
+<defaults>
+/fontstyle = ("Monaco", 18pt)
+/inputdevice = keyboard
+/ screencolor = (black)
+/ txcolor = (white)
+/txbgcolor = (black)
+</defaults>
+
+
+*****************************************************
+Stimuli
+*****************************************************
+
+<text positive>
+/items = positive
+/position = (50%, 40%)
+/fontstyle = ("Monaco", 22pt)
+/select = noreplace
+</text>
+
+<text negative>
+/items = negative
+/position = (50%, 40%)
+/fontstyle = ("Monaco", 22pt)
+/select = noreplace
+</text>
+
+<item positive>
+/ 1 = "Lively"
+/ 2 = "Cheerful"
+/ 3 = "Attractive"
+/ 4 = "Smart"
+/ 5 = "Brave"
+/ 6 = "Popular"
+/ 7 = "Funny"
+/ 8 = "Nice"
+/ 9 = "Proud"
+/10 = "Bold"
+/11 = "Exciting"
+/12 = "Free"
+/13 = "Helpful"
+/14 = "Curious"
+/15 = "Happy"
+/16 = "Clever"
+/17 = "Friendly"
+/18 = "Interesting"
+/19 = "Leader"
+/20 = "Winner"
+/21 = "Healthy"
+/22 = "Lucky"
+</item>
+
+<item negative>
+/ 1 = "Scared"
+/ 2 = "Nobody"
+/ 3 = "Quiet"
+/ 4 = "Ugly"
+/ 5 = "Tired"
+/ 6 = "Anxious"
+/ 7 = "Unhappy"
+/ 8 = "Lonely"
+/ 9 = "Foolish"
+/10 = "Hurt"
+/11 = "Boring"
+/12 = "Bad"
+/13 = "Loser"
+/14 = "Sleepy"
+/15 = "Sad"
+/16 = "Afraid"
+/17 = "Angry"
+/18 = "Terrible"
+/19 = "Strange"
+/20 = "Awful"
+/21 = "Nervous"
+/22 = "Alone"
+</item>
+
+<text describes>
+/ items = ("Describes me?")
+/position = (50%, 60%)
+</text>
+
+<text reminder>
+/items = ("Press the 'Y' key if the word describes you and the 'N' key if the word doesn't describe you")
+/position = (50%, 20%)
+/txcolor = (white)
+/fontstyle = ("Monaco", 12pt, false, true) 
+</text>
+
+*************************************
+
+<textbox maths1>
+/caption = "Now answer...~n~n~nWhat is 2 + 5?"
+/position = (50%, 50%)
+/ range = (1,10)
+</textbox>
+
+<textbox maths2>
+/caption = "What is 12 - 7?"
+/position = (50%, 50%)
+/range = (1,10)
+</textbox>
+
+<textbox maths3>
+/caption = "What is 2 x 3?"
+/position = (50%, 50%)
+/range = (1,10)
+</textbox>
+
+***********************************************************************
+<text recalltext>
+/items = ("Finally, we want you to try and remember as many words as you can from the 'Describes me?' task. 
+This is a memory test, so please type as many words (both good and bad) as you can remember in the white box below. 
+You have 3 minutes to do this and then the task is over.")
+/position = (50%, 20%)
+</text>
+
+*********************************************************
+Instructions
+*********************************************************
+
+
+<page intro>
+^^Task instructions:
+^^You will be shown words one by one and asked if each word 'describes you'.
+^Your task is to think about each word carefully and decide if it describes you.
+^You should press the 'Y' key if "yes" it does describe you and the 'N' key if "no" it doesn't describe you.
+^This task is pretty easy - just take your time!
+</page>
+
+<instruct>
+/wait = 1000
+/prevkey = (noresponse)
+/inputdevice = keyboard
+/lastlabel = "Press spacebar to continue"
+/nextkey = (" ")
+/ fontstyle = ("Monaco", 18pt)
+/ screencolor = (black)
+/ txcolor = (white)
+</instruct>
+
+
+*********************************************************
+Trials
+*********************************************************
+
+
+<trial positive>
+/stimulustimes = [1=positive; 2500=describes]
+/inputdevice = keyboard
+/validresponse = (anyresponse)
+/correctresponse = ("Y", "N")
+/response = correct
+/pretrialpause = 500
+</trial>
+
+<trial negative>
+/stimulustimes = [1=negative; 2500=describes]
+/inputdevice = keyboard
+/validresponse = (anyresponse)
+/correctresponse = ("Y", "N")
+/response = correct
+/pretrialpause = 500
+</trial>
+
+<surveypage maths1>
+/questions = [1=maths1]
+/showbackbutton = false
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage maths2>
+/questions = [1=maths2]
+/showbackbutton = false
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage maths3>
+/questions = [1=maths3]
+/showbackbutton = false
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<openended recall>
+/stimulustimes = [1=recalltext]
+/ size = (30%, 50%)
+/position = (50%, 80%)
+/charlimit = 1000
+/fontstyle = ("Monaco", 14pt)
+/response = timeout(180000)
+/mouse = false
+/ buttonlabel = "Ends in 3 minutes"
+</openended>
+
+
+********************************************************
+Blocks
+********************************************************
+
+
+<block SRET>
+/preinstructions = (intro)
+/trials = [1-44=noreplacenorepeat(positive, negative)]
+
+</block>
+
+<survey filler>
+/pages = [1=maths1; 2=maths2; 3=maths3]
+</survey>
+
+<block recall>
+/trials = [1=recall]
+</block>
+
+
+********************************************************
+Expt.
+********************************************************
+
+
+<expt >
+/blocks = [1=SRET; 2=filler; 3=recall]
+</expt>
+

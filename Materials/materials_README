@@ -1,0 +1,20 @@
+Materials README file
+
+This folder contains the study materials from the CogBIAS project (Booth et al., 2017, 2019) relevant to this project "Emotional information-processing correlates of positive mental health in adolescence: A network analysis approach" (Parsons, Songco, Booth, & Fox, 2020, submitted)
+
+All task materials were programmed in Inquisit Millisecond 4 (available from https://www.millisecond.com/). The Mental Health Questionnaire (Keyes, 2009) was originally programmed as part of a wider questionnaire battery programmed in limesurvey - here we provide the .lsg limesurvey file, as well as a more accessible text file containing the questions.
+
+Contents:
+
+- MHC.txt
+
+- MHC.lsg
+
+- AIBQ_2015.iqx
+
+- SRET_2015.iqx
+
+- Probe_2015.iqx
+-- Note: The data were not analysed in the main analyses of this paper but the materials are included here for completeness. The stimuli were taken from the STOIC database (Roy et al., 2007), a freely accessible database of emotional facial expression stimuli. We used the following stimuli in the task, which can also be found in this folder. 
+
+"SF1an.jpg", "SF1ha.jpg", "SF1ne.jpg", "SF1pa.jpg", "SF2an.jpg", "SF2ha.jpg", "SF2ne.jpg", "SF2pa.jpg", "SF3an.jpg", "SF3ha.jpg", "SF3ne.jpg", "SF3pa.jpg", "SM2an.jpg", "SM2ha.jpg", "SM2ne.jpg", "SM2pa.jpg", "SM3an.jpg", "SM3ha.jpg", "SM3ne.jpg", "SM3pa.jpg", "SM4an.jpg", "SM4ha.jpg", "SM4ne.jpg", "SM4pa.jpg", "SM5an.jpg", "SM5ha.jpg", "SM5ne.jpg", "SM5pa.jpg", "SRET_2015.iqx"
