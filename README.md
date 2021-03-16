@@ -20,6 +20,7 @@ Contains the code and text to generate the supplimental analyses pdf output. Loc
 
 File structure notes and key points
 
+```
 root
 |
 |- "CCBH-in-adolescence---Network-analysis.docx" 
@@ -72,5 +73,5 @@ root
 |      |---- "twoglasso2.png"
 |
 o
-
+```
 
