@@ -3,29 +3,21 @@
 
 \centering
 \includegraphics{CCBH-in-adolescence---Network-analysis_files/figure-latex/unnamed-chunk-1-1.pdf}
-\caption{\label{fig:unnamed-chunk-1}Graphical LASSO Networks. The left and right panels present the graphical LASSO network from the low mental health group and the high mental health group, respectively. Each node represents a cognitive bias measure and each edge represents the (partial) correlation between the nodes it connects, after controlling for all other variables in the network. Thicker edges represent stronger associations. Blue edges indicate positive relationships, whereas red edges indicate negative relationships.
-Note. IB\_S\_Pos = Social Positive Interpretation Bias; IB\_S\_Neg = Social Negative Interpretation Bias; IB\_N\_Pos = Non-Social Negative Interpretation Bias; IB\_N\_Neg = Non-Social; MB\_Pos = positive memory bias; MB\_Neg = negative memory bias.}
-\end{figure*}
-\begin{figure*}[hbt]
-\ifnextchar[{\eatarg}{}
-
-\centering
-\includegraphics{CCBH-in-adolescence---Network-analysis_files/figure-latex/unnamed-chunk-3-1.pdf}
-\caption{\label{fig:unnamed-chunk-3}Estimated moderated network of positive mental health, and interpretation and memory cognitive biases. Blue edges represent positive associations, red edges represent negative associations; the width of the edge indicates the strength of this relationship. The shaded area of the pie surrounding each node represents the predictability of that variable, i.e., the variance explained by all other variables in the network. Note that this figure does not visualise the degree of moderation in the networks.
+\caption{\label{fig:unnamed-chunk-1}Estimated moderated network of positive mental health, and interpretation and memory cognitive biases. Blue edges represent positive associations, red edges represent negative associations; the width of the edge indicates the strength of this relationship. The shaded area of the pie surrounding each node represents the predictability of that variable, i.e., the variance explained by all other variables in the network. Note that this figure does not visualise the degree of moderation in the networks.
 Note: MH = Positive mental health; IB\_S\_Pos = Social Positive Interpretation Bias; IB\_S\_Neg = Social Negative Interpretation Bias; IB\_N\_Pos = Non-Social Negative Interpretation Bias; IB\_N\_Neg = Non-Social; MB\_Pos = positive memory bias; MB\_Neg = negative memory bias}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
 \centering
-\includegraphics{CCBH-in-adolescence---Network-analysis_files/figure-latex/unnamed-chunk-4-1.pdf}
-\caption{\label{fig:unnamed-chunk-4}Edge strength and degree of moderation by mental health. The left panel presents the estimated edge weights (these correspond to the network visualization in figure 2) from 1000 resamples of the mgm network estimation procedure. The shaded area represents the 95\% CI around the estimate. Numbers running down the centre of the figure represent the proportion of non-zero estimates for each edge. The right panel presents the estimated moderating effect of mental health on each edge; the ticks represent the 95\% CI around the estimate. The circled numbers represent the number of non-zero moderation effects arising across the resamples. Note: MH = Positive mental health. From the Adolescent Interpretation and Belief Questionnaire (AIBQ): IB\_S\_Pos = Positive interpretation bias in social scenarios; IB\_S\_Neg = Negative interpretation bias in social scenarios; IB\_N\_Pos = Negative interpretation bias in non-social scenarios; IB\_N\_Neg = Negative interpretation bias in non-social scenarios. From the self-referential encoding task (endorsed and recalled items): MB\_Pos = positive memory bias; MB\_Neg = negative memory bias.}
+\includegraphics{CCBH-in-adolescence---Network-analysis_files/figure-latex/unnamed-chunk-2-1.pdf}
+\caption{\label{fig:unnamed-chunk-2}Edge strength and degree of moderation by mental health. The left panel presents the estimated edge weights (these correspond to the network visualization in Figure 1) from 1000 resamples of the mgm network estimation procedure. The shaded area represents the 95\% CI around the estimate. Numbers running down the centre of the figure represent the proportion of non-zero estimates for each edge. The right panel presents the estimated moderating effect of mental health on each edge; the ticks represent the 95\% CI around the estimate. The circled numbers represent the number of non-zero moderation effects arising across the resamples. Note: MH = Positive mental health. From the Adolescent Interpretation and Belief Questionnaire (AIBQ): IB\_S\_Pos = Positive interpretation bias in social scenarios; IB\_S\_Neg = Negative interpretation bias in social scenarios; IB\_N\_Pos = Negative interpretation bias in non-social scenarios; IB\_N\_Neg = Negative interpretation bias in non-social scenarios. From the self-referential encoding task (endorsed and recalled items): MB\_Pos = positive memory bias; MB\_Neg = negative memory bias.}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
 \centering
-\includegraphics{CCBH-in-adolescence---Network-analysis_files/figure-latex/unnamed-chunk-5-1.pdf}
-\caption{\label{fig:unnamed-chunk-5}Networks of cognitive biases conditioned on mental health. Mental health is specified at -1SD (left) and +1SD (right) from the mean, and at the mean MH (centre). Conditioning sets mental health to the specified value, and therefore the edges connecting mental health are set to zero (as there is no variance in mental health).
+\includegraphics{CCBH-in-adolescence---Network-analysis_files/figure-latex/unnamed-chunk-3-1.pdf}
+\caption{\label{fig:unnamed-chunk-3}Networks of cognitive biases conditioned on mental health. Mental health is specified at -1SD (left) and +1SD (right) from the mean, and at the mean MH (centre). Conditioning sets mental health to the specified value, and therefore the edges connecting mental health are set to zero (as there is no variance in mental health).
 Note: MH = Positive mental health. From the Adolescent Interpretation and Belief Questionnaire (AIBQ): IB\_S\_Pos = Positive interpretation bias in social scenarios; IB\_S\_Neg = Negative interpretation bias in social scenarios; IB\_N\_Pos = Negative interpretation bias in non-social scenarios; IB\_N\_Neg = Negative interpretation bias in non-social scenarios. From the self-referential encoding task (endorsed and recalled items): MB\_Pos = positive memory bias; MB\_Neg = negative memory bias.}
 \end{figure*}

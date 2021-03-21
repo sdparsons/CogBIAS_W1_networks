@@ -12,9 +12,9 @@ Contains the full code and text to run the core analyses and generate the manusc
 
 Contains the full code to run all of the analyses. The code is the same as in the .Rmd file, but with the text and markdown structure removed. 
 
-### supplimental_analysis.Rmd
+### Supplemental_analysis.Rmd
 
-Contains the code and text to generate the supplimental analyses pdf output. Located in the Supplimental_Analyses folder 
+Contains the code and text to generate the supplemental analyses pdf output. Located in the Supplemental_Analyses folder 
 
 
 
@@ -107,6 +107,13 @@ root
 |      |---- "SM5ne.jpg"       
 |      |---- "SM5pa.jpg"       
 |      |---- "SRET_2015.iqx"   
+|
+|--- Supplemental_Analyses
+|      |---- "r-references.bib"   
+|      |---- "supplemental_analysis.pdf"  
+|      |---- "supplemental_analysis.Rmd"  
+|      |---- "supplemental_analysis.tex"  
+|      |---- "supplemental_analysis_files"
 |
 o
 ```

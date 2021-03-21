@@ -1,6 +1,6 @@
 ---
-title             : "Supplimental analyses for: \n Emotional information-processing correlates of positive mental health in adolescence: A network analysis approach"
-shorttitle        : "supplimental analyses"
+title             : "Supplimental analyses"
+shorttitle        : "Supplimental analyses"
 
 author: 
   - name          : "Sam Parsons"
@@ -20,7 +20,7 @@ affiliation:
     institution   : "Department of Experimental Psychology, University of Oxford"
 
 authornote: |
-  author note
+  This document contains supplimental analyses for "Emotional information-processing correlates of positive mental health in adolescence: A network analysis approach". These analyses were originally conducted before we were made aware of moderated network approaches - we present these in the main manusript. Here, we present a network comparison of cognitive bias networks for a high mental health subsample and a low mental health subsample. 
 
 
 bibliography      : ["../My Library.bib", "../r-references.bib"]
@@ -173,8 +173,8 @@ CCBH2 <- CCBH %>%
 full_cor <- cor(CCBH2)
 full_cov <- cov(CCBH2)
 
-write.csv(full_cor, "../Apendices/S8_FullSample_cor.csv")
-write.csv(full_cov, "../Apendices/S9_FullSample_cov.csv")
+#write.csv(full_cor, "../Apendices/S8_FullSample_cor.csv")
+#write.csv(full_cov, "../Apendices/S9_FullSample_cov.csv")
 
 ###
 
@@ -224,10 +224,10 @@ low_cov <- cov(low3)
 high_cor <- cor(high3)
 high_cov <- cov(high3)
 
-#write.csv(low_cor, "Apendices/S2_lowMH_cor_matrix.csv")
-#write.csv(low_cov, "Apendices/S3_lowMH_cov_matrix.csv")
-#write.csv(high_cor, "Apendices/S5_highMH_cor_matrix.csv")
-#write.csv(high_cov, "Apendices/S6_highMH_cov_matrix.csv")
+write.csv(low_cor, "../Apendices/S2_lowMH_cor_matrix.csv")
+write.csv(low_cov, "../Apendices/S3_lowMH_cov_matrix.csv")
+write.csv(high_cor, "../Apendices/S5_highMH_cor_matrix.csv")
+write.csv(high_cov, "../Apendices/S6_highMH_cov_matrix.csv")
 
 
 ```
@@ -268,7 +268,7 @@ layout_common <- averageLayout(glasso_low,
 # plot the low and high sample networks
 # save this plot
 
-Cairo::Cairo(file="../Figures/twoglasso.png", 
+Cairo::Cairo(file="../Figures/Supplimental_Figure_1.png", 
       type="png",
       bg = "white",
       units="in", 
@@ -406,7 +406,7 @@ high_m_sd <- high_m_sd %>%
 
 table2 <- cbind(low_m_sd, high_m_sd)
 
-write.csv(table2, "../Apendices/S1_Table_2.csv")
+write.csv(table2, "../Apendices/S1_Table_S1.csv")
 
 
 ```
@@ -415,17 +415,17 @@ write.csv(table2, "../Apendices/S1_Table_2.csv")
 
 We first excluded all participants without complete data in all the measures described below, from the original sample of 504 adolescents. This resulted in a final sample of 450 adolescents (_M_ age = `r papaja::printnum(mean(demographics$Age, na.rm = TRUE))`, _SD_ = `r papaja::printnum(sd(demographics$Age, na.rm = TRUE))`, `r sum(demographics$gender == "F")` female, 75% Caucasian). We used the average score of parent’s highest level of education as an indirect measure of Socio-economic status, the median score was 4 (1 = “Secondary school”, 2 = “Vocational/technical school”, 3=“Some college”, 4 = “Bachelor’s degree”, 5 = “Master’s degree” , 6 = “Doctoral degree”).
 
-for the first stage of our analysis we selected two groups of participants based on scores on the Mental Health Continuum (MHC). For this, we performed a tertile split to yield low and high Mental Health groups (low-MH and high-MH, respectively). The low-MH group consisted of 146 participants, scoring below 37 on the MHC and the high-MH group consisted of 150 participants scoring above 47 on the MHC. 
+For the first stage of our analysis we selected two groups of participants based on scores on the Mental Health Continuum (MHC). For this, we performed a tertile split to yield low and high Mental Health groups (low-MH and high-MH, respectively). The low-MH group consisted of 146 participants, scoring below 37 on the MHC and the high-MH group consisted of 150 participants scoring above 47 on the MHC. 
 
 ## Analysis plan
 
-First, we report a preliminary analysis in which we compared the network structure of interpretation and memory biases for a high-MH and a low-MH group, following a tertile split of the data by mental health. We computed a ‘graphical LASSO’ [gLASSO; @R-bootnet; also @friedman_sparse_2008] estimation procedure with EBIC model selection [@foygel_extended_2010]. The glasso algorithm is implemented in the _glasso_ package [@R-glasso], and is called by the _bootnet_ package [@R-bootnet], which we used for this paper. The glasso algorithm estimates a partial correlation network by directly penalising elements of the variance-covariance matrix and removing edges close to zero. We set the tuning parameter gamma to 0.5 to generate a sparser network, due to the removal of potentially spurious associations. We then used the NCT function from the _NetworkComparisonTest_ package [@R-NetworkComparisonTest] to compare our high mental health and low mental health networks. The function tests for differences in the overall connectivity (as the sum of all edge weights in the network, or global strength) between networks.
+First, we report a preliminary analysis in which we compared the network structure of interpretation and memory biases for a high-MH and a low-MH group, following a tertile split of the data by mental health. We computed a ‘graphical LASSO’ [gLASSO, @R-bootnet; also @friedman_sparse_2008] estimation procedure with EBIC model selection [@foygel_extended_2010]. The glasso algorithm is implemented in the _glasso_ package [@R-glasso], and is called by the _bootnet_ package [@R-bootnet], which we used for this paper. The glasso algorithm estimates a partial correlation network by directly penalising elements of the variance-covariance matrix and removing edges close to zero. We set the tuning parameter gamma to 0.5 to generate a sparser network, due to the removal of potentially spurious associations. We then used the NCT function from the _NetworkComparisonTest_ package [@R-NetworkComparisonTest] to compare our high mental health and low mental health networks. The function tests for differences in the overall connectivity (as the sum of all edge weights in the network, or global strength) between networks.
 
 # Results
 
 First we estimated a graphical LASSO network (tuning parameter gamma was set to .5 to generate a sparser network) for the high and low mental health groups separately (edge weight matrices for the low MH and high MH groups can be found in supplemental tables S4 and S7, respectively). Figure 1 presents a visualisation of both networks. In the low mental health network, each node is connected to two or more other nodes; negative and positive biases are negatively associated; and, the strongest edges connect memory biases with social interpretation biases. In contrast, the high mental health network is substantially less interconnected compared to the low mental health network with only three retained edges compared to eleven. In the high mental health network, no negative relationships were retained between the positive and negative cognitive biases. Additionally, the edges retained in both networks are weaker in the high mental health group. To formally compare the global strength of each network (the sum of edge strengths in the network) we used the NCT function from the _NetworkComparisonTest_ package [@R-NetworkComparisonTest]. We ran 1000 iterations resampling from the networks. The low-MH network (global strength = `r papaja::printnum(sum(abs(glasso_low$graph))/2)`) was more strongly connected overall than the high-MH network (global strength = `r papaja::printnum(sum(abs(glasso_high$graph))/2)`), and this difference was statistically significant, _p_ = `r papaja::printp(lh$glstrinv.pval)`. 
 
-It is possible that low connectivity in the high-MH group could be caused by low variance. We ran Brown-Forsythe tests for equality of variances for each bias to compare the high and low group. For all variables, the high-MH group had significantly less variance (all _p_ values `r bftest_min`). While significant, the differences are small. For example, positive interpretation bias for social scenarios had variances of `r var(low4$IB_S_Pos)` and `r var(high4$IB_S_Pos)` for the low-MH and high-MH groups, respectively. We do not think it is likely that of the small differences in variance entirely explains the low connectivity in the high-MH group, relative to the low-MH group. The following moderated network model approach analysis helps navigate this limitation by using the continuous measure of mental health.
+It is possible that low connectivity in the high-MH group could be caused by low variance. We ran Brown-Forsythe tests for equality of variances for each bias to compare the high and low group (Supplemental table S1 contains the high and low sample means, standard deviations, and variances for all variables). For all variables, the high-MH group had significantly less variance (all _p_ values `r bftest_min`). While significant, the differences are small. For example, positive interpretation bias for social scenarios had variances of `r var(low4$IB_S_Pos)` and `r var(high4$IB_S_Pos)` for the low-MH and high-MH groups, respectively. We do not think it is likely that of the small differences in variance entirely explains the low connectivity in the high-MH group, relative to the low-MH group. The moderated network model approach presented in the main manuscript helps navigate this limitation by using the continuous measure of mental health.
 
 ```{r fig.cap="Graphical LASSO Networks. The left and right panels present the graphical LASSO network from the low mental health group and the high mental health group, respectively. Each node represents a cognitive bias measure and each edge represents the (partial) correlation between the nodes it connects, after controlling for all other variables in the network. Thicker edges represent stronger associations. Blue edges indicate positive relationships, whereas red edges indicate negative relationships. \n Note. IB_S_Pos = Social Positive Interpretation Bias; IB_S_Neg = Social Negative Interpretation Bias; IB_N_Pos = Non-Social Negative Interpretation Bias; IB_N_Neg = Non-Social; MB_Pos = positive memory bias; MB_Neg = negative memory bias."}
 
