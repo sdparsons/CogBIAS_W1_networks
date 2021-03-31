@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2021.3.16)  21 MAR 2021 09:40
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2021.3.16)  31 MAR 2021 10:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1290,7 +1290,12 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 [10] [11] [12] [13] [14]
 \openout3 = `CCBH-in-adolescence---Network-analysis.ttt'.
 
-(CCBH-in-adolescence---Network-analysis.ttt) [15]
+(CCBH-in-adolescence---Network-analysis.ttt)
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 313.
+
+[15]
 \openout4 = `CCBH-in-adolescence---Network-analysis.fff'.
 
 (CCBH-in-adolescence---Network-analysis.fff) [16] [17] [18] [19] [20] [21] [22]
@@ -1357,13 +1362,13 @@ LaTeX Info: Redefining \ttfamily on input line 19.
 )
 Package rerunfilecheck Info: File `CCBH-in-adolescence---Network-analysis.out' 
 has not changed.
-(rerunfilecheck)             Checksum: 58730F59E381E7C26F55C808493B1EBF;3029.
+(rerunfilecheck)             Checksum: F0520B496CD936A424896627A08A40F6;3111.
  ) 
 Here is how much of TeX's memory you used:
- 21832 strings out of 478930
- 395694 string characters out of 5865129
- 925028 words of memory out of 5000000
- 41290 multiletter control sequences out of 15000+600000
+ 21833 strings out of 478930
+ 395703 string characters out of 5865129
+ 925060 words of memory out of 5000000
+ 41291 multiletter control sequences out of 15000+600000
  436129 words of font info for 100 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  98i,12n,122p,2726b,627s stack positions out of 5000i,500n,10000p,200000b,80000s
